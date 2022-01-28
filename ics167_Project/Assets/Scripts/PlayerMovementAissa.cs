@@ -11,7 +11,7 @@ public class PlayerMovementAissa : MonoBehaviour
 
     [Header("input settings")]
     [SerializeField] private string HorizontalAxis;
-    [SerializeField] private string JumpAxis;
+    [SerializeField] private string JumpButton;
 
     [Header("movement settings")]
     [SerializeField] private float m_moveSpeed = 5f;
@@ -21,7 +21,7 @@ public class PlayerMovementAissa : MonoBehaviour
     private enum AnimationState { idle, running, jumping, falling };
 
     private float movement_x = 0f;
-    private bool jumpButtonDown;
+    private bool doubleJumpEnabled;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class PlayerMovementAissa : MonoBehaviour
 
     private void Start()
     {
-        jumpButtonDown = false;
+        doubleJumpEnabled = false;
     }
 
     private void Update()
@@ -43,21 +43,15 @@ public class PlayerMovementAissa : MonoBehaviour
         m_rb.velocity = new Vector2(movement_x * m_moveSpeed, m_rb.velocity.y);
 
         // jump
-        if (Input.GetAxisRaw(JumpAxis) != 0 && IsGrounded())
+        if (Input.GetButtonDown(JumpButton))
         {
-            // if jump button is pressed + player is on ground
-            if (!jumpButtonDown)
-            {
-                // if jump button is not already pressed
-                // (need to check because GetAxisRaw responds for the duration of when a button is held,
-                // not just the moment it is pressed down)
+            if (IsGrounded())
                 m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
+            if (!IsGrounded() && doubleJumpEnabled)
+            {
+                m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
+                doubleJumpEnabled = false;
             }
-            jumpButtonDown = true;
-        }
-        else
-        {
-            jumpButtonDown = false;
         }
 
         UpdateAnimation();
@@ -66,6 +60,11 @@ public class PlayerMovementAissa : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(m_collider.bounds.center, m_collider.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
+    }
+
+    public void EnableDoubleJump()
+    {
+        doubleJumpEnabled = true;
     }
 
     private void UpdateAnimation()
