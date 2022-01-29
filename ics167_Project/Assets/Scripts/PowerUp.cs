@@ -9,7 +9,7 @@ public class PowerUp : MonoBehaviour
 
     [SerializeField] private GameEvent OnPowerUpCollected;
     [SerializeField] private GameEvent OnPowerUpExpired;
-    [SerializeField] private float timer;
+    [SerializeField] private float timer = 5f;
 
     private bool isInUse;
 

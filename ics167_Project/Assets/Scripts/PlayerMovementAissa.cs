@@ -23,7 +23,9 @@ public class PlayerMovementAissa : MonoBehaviour
     private enum AnimationState { idle, running, jumping, falling };
 
     private float movement_x = 0f;
+    private float speedIncrease;
     private bool doubleJumpEnabled;
+    private bool speedEnabled;
 
     private void Awake()
     {
@@ -38,6 +40,8 @@ public class PlayerMovementAissa : MonoBehaviour
         // horizontal movement
         movement_x = Input.GetAxisRaw(HorizontalAxis);
         m_rb.velocity = new Vector2(movement_x * m_moveSpeed, m_rb.velocity.y);
+        if (speedEnabled)
+            m_rb.velocity = new Vector2(movement_x * m_moveSpeed * speedIncrease, m_rb.velocity.y);
 
         // jump
         if (Input.GetButtonDown(JumpButton))
@@ -106,6 +110,17 @@ public class PlayerMovementAissa : MonoBehaviour
     public void DisableDoubleJump()
     {
         doubleJumpEnabled = false;
+    }
+
+    public void EnableSpeed(float speedIncreaseAmount)
+    {
+        speedEnabled = true;
+        speedIncrease = speedIncreaseAmount;
+    }
+
+    public void DisableSpeed()
+    {
+        speedEnabled = false;
     }
 
 }
