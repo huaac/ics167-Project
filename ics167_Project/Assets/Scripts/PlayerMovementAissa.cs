@@ -18,6 +18,8 @@ public class PlayerMovementAissa : MonoBehaviour
     [SerializeField] private float m_jumpSpeed = 7f;
     [SerializeField] private LayerMask jumpableGround;
 
+    [SerializeField] private GameEvent OnPowerUpExpired;
+
     private enum AnimationState { idle, running, jumping, falling };
 
     private float movement_x = 0f;
@@ -51,6 +53,7 @@ public class PlayerMovementAissa : MonoBehaviour
             {
                 m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
                 doubleJumpEnabled = false;
+                OnPowerUpExpired.Raise();
             }
         }
 

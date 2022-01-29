@@ -7,6 +7,9 @@ public class PowerUp : MonoBehaviour
     protected PlayerMovementAissa player;
     protected SpriteRenderer spriteRenderer;
 
+    [SerializeField] private GameEvent OnPowerUpCollected;
+
+
     protected virtual void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -14,7 +17,6 @@ public class PowerUp : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("trigger detected!");
         PowerUpCollected(other.gameObject);
     }
 
@@ -28,6 +30,7 @@ public class PowerUp : MonoBehaviour
             return;
         }
 
+        OnPowerUpCollected.Raise();
         PowerUpApply();
 
         spriteRenderer.enabled = false;
