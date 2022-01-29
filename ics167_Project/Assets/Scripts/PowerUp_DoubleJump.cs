@@ -11,4 +11,10 @@ public class PowerUp_DoubleJump : PowerUp
         // Payload is to give some health bonus
         player.EnableDoubleJump();
     }
+
+    protected override void PowerUpExpired()
+    {
+        player.DisableDoubleJump();
+        base.PowerUpExpired();
+    }
 }

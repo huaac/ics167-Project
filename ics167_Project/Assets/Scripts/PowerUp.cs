@@ -8,6 +8,10 @@ public class PowerUp : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
 
     [SerializeField] private GameEvent OnPowerUpCollected;
+    [SerializeField] private GameEvent OnPowerUpExpired;
+    [SerializeField] private float timer;
+
+    private bool isInUse;
 
 
     protected virtual void Awake()
@@ -29,6 +33,12 @@ public class PowerUp : MonoBehaviour
         {
             return;
         }
+        // check if we haven't been collected before
+        if (isInUse)
+        {
+            return;
+        }
+        isInUse = true;
 
         OnPowerUpCollected.Raise();
         PowerUpApply();
@@ -38,11 +48,31 @@ public class PowerUp : MonoBehaviour
 
     protected virtual void PowerUpApply()
     {
+        
+    }
+
+    protected virtual void PowerUpExpired()
+    {
+        OnPowerUpExpired.Raise();
         DestroySelf();
     }
 
     protected void DestroySelf()
     {
         Destroy(gameObject);
+    }
+
+
+    private void Update()
+    {
+        if (isInUse)
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {
+                isInUse = false;
+                PowerUpExpired();
+            }
+        }
     }
 }

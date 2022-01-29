@@ -33,11 +33,6 @@ public class PlayerMovementAissa : MonoBehaviour
         m_anim = GetComponent<Animator>();
     }
 
-    private void Start()
-    {
-        doubleJumpEnabled = false;
-    }
-
     private void Update()
     {
         // horizontal movement
@@ -52,22 +47,12 @@ public class PlayerMovementAissa : MonoBehaviour
             if (!IsGrounded() && doubleJumpEnabled)
             {
                 m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
-                doubleJumpEnabled = false;
-                OnPowerUpExpired.Raise();
+                //doubleJumpEnabled = false;
+                //OnPowerUpExpired.Raise();
             }
         }
 
         UpdateAnimation();
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics2D.BoxCast(m_collider.bounds.center, m_collider.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
-    }
-
-    public void EnableDoubleJump()
-    {
-        doubleJumpEnabled = true;
     }
 
     private void UpdateAnimation()
@@ -105,4 +90,22 @@ public class PlayerMovementAissa : MonoBehaviour
 
         m_anim.SetInteger("currentState", (int)state);
     }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(m_collider.bounds.center, m_collider.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
+    }
+
+
+    // enabling/disabling power ups
+    public void EnableDoubleJump()
+    {
+        doubleJumpEnabled = true;
+    }
+
+    public void DisableDoubleJump()
+    {
+        doubleJumpEnabled = false;
+    }
+
 }
