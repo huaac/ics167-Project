@@ -32,6 +32,7 @@ public class PlayerMovementAissa : MonoBehaviour
     private bool doubleJumpEnabled;
     private bool speedEnabled;
     private bool wallJumpEnabled;
+    private bool proteinEnabled;
 
     private void Awake()
     {
@@ -61,11 +62,13 @@ public class PlayerMovementAissa : MonoBehaviour
             {
                 if (!isDoubleJumping)
                 {
+                    // double jump
                     m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
                     isDoubleJumping = true;
                 }
             }
 
+            // wall jump
             if (!IsGrounded() && wallJumpEnabled && canWallJump)
             {
                 m_rb.velocity = new Vector2(m_rb.velocity.x * wallNormal.x, m_jumpSpeed);
@@ -119,6 +122,20 @@ public class PlayerMovementAissa : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //if (other == enemy) // somehow detect that other collider is enemy
+        //{
+        //    if (proteinEnabled)
+        //    {
+        //        // Destroy enemy or decrease their HP
+        //    }
+        //    else
+        //    {
+        //        // Destroy self or do some other player death logic
+        //    }
+        //}
+        //else
+        //{
+        // wall detector code for wall jump
         Vector2 normal = collision.GetContact(0).normal;
         if (!IsGrounded() && (normal == new Vector2(1f, 0f) || normal == new Vector2(-1f, 0f)))
         {
@@ -126,36 +143,24 @@ public class PlayerMovementAissa : MonoBehaviour
             canWallJump = true;
             wallNormal = normal;
         }
+        //}
     }
 
 
     // enabling/disabling power ups
-    public void EnableDoubleJump()
-    {
-        doubleJumpEnabled = true;
-    }
-    public void DisableDoubleJump()
-    {
-        doubleJumpEnabled = false;
-    }
+    public void EnableDoubleJump() { doubleJumpEnabled = true; }
+    public void DisableDoubleJump() { doubleJumpEnabled = false; }
 
     public void EnableSpeed(float speedIncreaseAmount)
     {
         speedEnabled = true;
         speedIncrease = speedIncreaseAmount;
     }
-    public void DisableSpeed()
-    {
-        speedEnabled = false;
-    }
+    public void DisableSpeed() { speedEnabled = false; }
 
-    public void EnableWallJump()
-    {
-        wallJumpEnabled = true;
-    }
-    public void DisableWallJump()
-    {
-        wallJumpEnabled = false;
-    }
+    public void EnableWallJump() { wallJumpEnabled = true; }
+    public void DisableWallJump() { wallJumpEnabled = false; }
 
+    public void EnableProtein() { proteinEnabled = true; }
+    public void DisableProtein() { proteinEnabled = false; }
 }
