@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovementAissa : MonoBehaviour
 {
@@ -142,6 +143,10 @@ public class PlayerMovementAissa : MonoBehaviour
             // if player is not grounded + normals are horizontal (collision is against wall)
             canWallJump = true;
             wallNormal = normal;
+        }
+        if (collision.gameObject.tag == "Finish")
+        {
+            SceneManager.LoadScene(0);
         }
         //}
     }
