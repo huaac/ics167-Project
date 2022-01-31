@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KillableEnemy : MonoBehaviour
+public abstract class KillableEnemy : Enemy
 {
 
     protected int max_health = 100;
@@ -17,7 +17,7 @@ public class KillableEnemy : MonoBehaviour
         health_bar.SetMaxHealth(max_health);
     }
 
-    void TakeDamage(int damage)
+    protected void TakeDamage(int damage)
     {
         current_health -= damage;
         ChangeHealthBar();
@@ -27,4 +27,6 @@ public class KillableEnemy : MonoBehaviour
     {
         health_bar.SetHealth(current_health);
     }
+
+    public abstract void OnCollisionEnter2D(Collision2D col);
 }
