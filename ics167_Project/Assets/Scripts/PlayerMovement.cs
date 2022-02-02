@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// written by Alice Hua
+// not in use anymore
+
 public class PlayerMovement : MonoBehaviour
 {
    public float speed;
@@ -33,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
        if(movement != Vector3.zero) //if no input, then don't move
        {
            rb.MovePosition(transform.position + speed * movement * Time.deltaTime); //physically moves Nuvi in the direction
-           //transform.rotation = Quaternion.LookRotation(transform.forward, -movement); //for facing the direction its moving
-           //-movement bc otherwise it will face the opposite direction since transform is facing downwards
        }
        if(move_x > 0 && !facing_right)
        {

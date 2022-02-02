@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// written by Alice Hua
+// simply used to take away the platform that that holds the spiders
+// might take away / find a better way next playtest
+
 public class TakeAwayPlatform : MonoBehaviour
 {
     public GameObject temp_collider;

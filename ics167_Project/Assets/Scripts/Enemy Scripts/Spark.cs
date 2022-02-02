@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// added in / edited by Alice Hua
+// Taken from https://www.youtube.com/watch?v=11ofnLOE8pw&ab_channel=AlexanderZotov
+
 public class Spark : UnkillableEnemy
 {
     [SerializeField]
     private Transform[] routes;
 
-    private int routeToGo;
+    private int routeToGo;  // holds index of next curve array to follow
 
-    private float tParam;
+    private float tParam;   // for curve formula
 
-    private Vector2 objectPosition;
+    private Vector2 objectPosition; // object / spark position
 
     private float speedModifier;
 
-    private bool coroutineAllowed;
+    private bool coroutineAllowed;  // stop running another coroutine if already have 1
 
     // Start is called before the first frame update
     void Start()

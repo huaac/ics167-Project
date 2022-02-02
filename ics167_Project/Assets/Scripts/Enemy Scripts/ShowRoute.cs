@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Added in by Alice Hua
+// Taken from https://www.youtube.com/watch?v=11ofnLOE8pw&ab_channel=AlexanderZotov
+//shows the Route the "spark" enemy will be taking on the wire
+
 public class ShowRoute : MonoBehaviour
 {
     [SerializeField]

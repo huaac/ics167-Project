@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// written by Alice Hua
+// steam puffs are enemy to player
+
 public class Steam : UnkillableEnemy
 {
     //if particle collides with player, player dies
@@ -13,18 +16,4 @@ public class Steam : UnkillableEnemy
             CallResetScene();
         }
     }
-
-    /*
-    //public ParticleSystem steam_puff;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //steam_puff = GetComponent<ParticleSystem>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    } */
 }

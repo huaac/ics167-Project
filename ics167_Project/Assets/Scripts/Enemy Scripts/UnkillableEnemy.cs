@@ -2,20 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// written by Alice Hua
+
 public abstract class UnkillableEnemy : Enemy
 {
     //Nothing rn but will add when we put in more functions
-
-    /*
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }*/
 }
