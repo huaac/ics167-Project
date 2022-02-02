@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool isDead { get; set; };
-    public int completedLevels { get; set; };
+    public bool isDead { get; set; }
+    public int completedLevels { get; set; }
 
     void Awake() 
     {
