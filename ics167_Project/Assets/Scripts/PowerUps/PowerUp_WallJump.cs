@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// by Aissa Akiyama
+
 public class PowerUp_WallJump : PowerUp
 {
     protected override void PowerUpApply()
     {
         base.PowerUpApply();
-
-        // Payload is to give some health bonus
         player.EnableWallJump();
     }
 

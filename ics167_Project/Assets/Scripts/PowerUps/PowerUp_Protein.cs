@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// by Aissa Akiyama
+// TODO: This power-up is not implemented yet
+
 public class PowerUp_Protein : PowerUp
 {
     protected override void PowerUpApply()
     {
         base.PowerUpApply();
-
-        // Payload is to give some health bonus
         player.EnableProtein();
     }
 

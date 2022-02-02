@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// by Aissa Akiyama
+// Defines an abstract base class for power-ups. When a power-up is collected, it starts a timer that counts
+// for a designer-specified amount of time, and the power-up expires when it reaches 0.
+// Power-ups can be enabled/disabled on collection and expire by overriding the PowerUpApply() and
+// PowerUpExpired() methods.
+
 public abstract class PowerUp : MonoBehaviour
 {
     protected PlayerMovementAissa player;
@@ -40,7 +46,7 @@ public abstract class PowerUp : MonoBehaviour
         }
         isInUse = true;
 
-        OnPowerUpCollected.Raise();
+        OnPowerUpCollected.Raise(); // raise game event associated with collection of this power-up
         PowerUpApply();
 
         spriteRenderer.enabled = false;
@@ -53,7 +59,7 @@ public abstract class PowerUp : MonoBehaviour
 
     protected virtual void PowerUpExpired()
     {
-        OnPowerUpExpired.Raise();
+        OnPowerUpExpired.Raise(); // raise game event associated with expiration of power-ups
         DestroySelf();
     }
 

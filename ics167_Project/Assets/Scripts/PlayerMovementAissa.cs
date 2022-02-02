@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// by Aissa Akiyama
+// Implements player movement by using Input axes that can be set in the Input Manager for Project Settings.
+// Also sets animation for the player's Animator to use depending on player's velocity.
+// There are booleans that can be set from PowerUp scripts to enable/disable certain types of movement.
+
 public class PlayerMovementAissa : MonoBehaviour
 {
     private Rigidbody2D m_rb;
@@ -116,6 +121,7 @@ public class PlayerMovementAissa : MonoBehaviour
         m_anim.SetInteger("currentState", (int)state);
     }
 
+    // A function that returns true if the player is on the ground
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(m_collider.bounds.center, m_collider.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
@@ -123,19 +129,6 @@ public class PlayerMovementAissa : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (other == enemy) // somehow detect that other collider is enemy
-        //{
-        //    if (proteinEnabled)
-        //    {
-        //        // Destroy enemy or decrease their HP
-        //    }
-        //    else
-        //    {
-        //        // Destroy self or do some other player death logic
-        //    }
-        //}
-        //else
-        //{
         // wall detector code for wall jump
         Vector2 normal = collision.GetContact(0).normal;
         if (!IsGrounded() && (normal == new Vector2(1f, 0f) || normal == new Vector2(-1f, 0f)))
@@ -144,12 +137,11 @@ public class PlayerMovementAissa : MonoBehaviour
             canWallJump = true;
             wallNormal = normal;
         }
-        if (collision.gameObject.tag == "Finish")
+        if (collision.gameObject.tag == "Finish")   // by Mindy Jun
         {
             GameManager.Instance.completedLevels += 1;
             SceneManager.LoadScene(GameManager.Instance.completedLevels + 1);
         }
-        //}
     }
 
 

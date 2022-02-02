@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// by Aissa Akiyama
 // This class is a generic listener script for game events.
 // The gameEvent field specifies what game event this listener will be listening to.
 // The response field specifies what function in what object will be called when the game event

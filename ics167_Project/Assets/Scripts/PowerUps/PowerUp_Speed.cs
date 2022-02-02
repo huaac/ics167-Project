@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// by Aissa Akiyama
+
 public class PowerUp_Speed : PowerUp
 {
     [SerializeField] private float speedIncrease;
@@ -8,8 +10,6 @@ public class PowerUp_Speed : PowerUp
     protected override void PowerUpApply()
     {
         base.PowerUpApply();
-
-        // Payload is to give some health bonus
         player.EnableSpeed(speedIncrease);
     }
 

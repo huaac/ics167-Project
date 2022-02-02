@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// by Aissa Akiyama
+
 public class PowerUp_DoubleJump : PowerUp
 {
     protected override void PowerUpApply()
     {
         base.PowerUpApply();
-
-        // Payload is to give some health bonus
         player.EnableDoubleJump();
     }
 
