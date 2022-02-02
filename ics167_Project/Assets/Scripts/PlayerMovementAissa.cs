@@ -146,7 +146,8 @@ public class PlayerMovementAissa : MonoBehaviour
         }
         if (collision.gameObject.tag == "Finish")
         {
-            SceneManager.LoadScene(2);
+            GameManager.Instance.completedLevels += 1;
+            SceneManager.LoadScene(GameManager.Instance.completedLevels + 1);
         }
         //}
     }

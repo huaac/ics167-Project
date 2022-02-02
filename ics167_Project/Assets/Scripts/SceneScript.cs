@@ -10,7 +10,6 @@ public class SceneScript : MonoBehaviour
     public void PlayGame() 
     {
         SceneManager.LoadScene(1);
-        GameManager.Instance.isDead = false;
     }
 
     public void QuitGame() 
