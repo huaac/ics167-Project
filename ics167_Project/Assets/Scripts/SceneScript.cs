@@ -7,17 +7,21 @@ using UnityEngine.SceneManagement;
 
 public class SceneScript : MonoBehaviour
 {
+    //Loads the first level
     public void PlayGame() 
     {
         SceneManager.LoadScene(1);
     }
 
+    //Quits the game. Only works when it's played as a game,
+    //not in the Unity Client. It'll print out "QUIT!" in the log.
     public void QuitGame() 
     {
-        Debug.Log("QUTI!");
+        Debug.Log("QUIT!");
         Application.Quit();
     }
 
+    //Switches to the Title Screen/Menu Screen
     public void GoToMenu() 
     {
         SceneManager.LoadScene(0);
