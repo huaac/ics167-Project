@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//written by Mindy Jun
+
 public class SceneScript : MonoBehaviour
 {
     public void PlayGame() 
