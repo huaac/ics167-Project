@@ -2678,10 +2678,45 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minCurve.m_Curve.Array.data[1].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6182191330325990953, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182191330325990953, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182191330325990953, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182191330325990953, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1930433683
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182191330325990953, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_RenderAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182191330325990955, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.183
+      objectReference: {fileID: 0}
     - target: {fileID: 6182191330459352512, guid: 556a20ea5a81d274bbda6d1894bc23b6,
         type: 3}
       propertyPath: m_Name
       value: Pipe2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182191330459352512, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6182191330459352515, guid: 556a20ea5a81d274bbda6d1894bc23b6,
         type: 3}
@@ -4865,10 +4900,30 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minCurve.m_Curve.Array.data[1].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6182191330325990953, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182191330325990953, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182191330325990953, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1256797951
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182191330325990953, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_RenderAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6182191330325990955, guid: 556a20ea5a81d274bbda6d1894bc23b6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.191
+      value: -0.182
       objectReference: {fileID: 0}
     - target: {fileID: 6182191330325990955, guid: 556a20ea5a81d274bbda6d1894bc23b6,
         type: 3}
@@ -4904,6 +4959,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pipe2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182191330459352512, guid: 556a20ea5a81d274bbda6d1894bc23b6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6182191330459352514, guid: 556a20ea5a81d274bbda6d1894bc23b6,
         type: 3}
