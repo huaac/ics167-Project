@@ -14,6 +14,7 @@ public class PlayerMovementAissa : MonoBehaviour
     private BoxCollider2D m_collider;
     private SpriteRenderer m_sprite;
     private Animator m_anim;
+    private PlayerState m_playerState;
 
     [Header("Input Settings")]
     [SerializeField] private string HorizontalAxis;
@@ -35,10 +36,9 @@ public class PlayerMovementAissa : MonoBehaviour
     private Vector2 wallNormal;
 
     // bool's to enable/disable power ups
-    private bool doubleJumpEnabled;
+    /*private bool doubleJumpEnabled;
     private bool speedEnabled;
-    private bool wallJumpEnabled;
-    private bool proteinEnabled;
+    private bool wallJumpEnabled;*/
 
     private void Awake()
     {
@@ -46,15 +46,21 @@ public class PlayerMovementAissa : MonoBehaviour
         m_collider = GetComponent<BoxCollider2D>();
         m_sprite = GetComponent<SpriteRenderer>();
         m_anim = GetComponent<Animator>();
+        m_playerState = GetComponent<PlayerState>();
+    }
+
+    private void Start()
+    {
+        m_playerState.SpeedMultiplier = 1f;
     }
 
     private void Update()
     {
         // horizontal movement
         movement_x = Input.GetAxisRaw(HorizontalAxis);
-        m_rb.velocity = new Vector2(movement_x * m_moveSpeed, m_rb.velocity.y);
-        if (speedEnabled)
-            m_rb.velocity = new Vector2(movement_x * m_moveSpeed * speedIncrease, m_rb.velocity.y);
+        m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
+        //if (m_playerState.HasSpeed)
+        //    m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
 
         // jump
         if (Input.GetButtonDown(JumpButton))
@@ -64,7 +70,7 @@ public class PlayerMovementAissa : MonoBehaviour
                 m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
                 isDoubleJumping = false;
             }
-            else if (!IsGrounded() && doubleJumpEnabled)
+            else if (!IsGrounded() && m_playerState.HasDoubleJump)
             {
                 if (!isDoubleJumping)
                 {
@@ -75,7 +81,7 @@ public class PlayerMovementAissa : MonoBehaviour
             }
 
             // wall jump
-            if (!IsGrounded() && wallJumpEnabled && canWallJump)
+            if (!IsGrounded() && m_playerState.HasWallJump && canWallJump)
             {
                 m_rb.velocity = new Vector2(m_rb.velocity.x * wallNormal.x, m_jumpSpeed);
                 canWallJump = false;
@@ -146,6 +152,7 @@ public class PlayerMovementAissa : MonoBehaviour
 
 
     // enabling/disabling power ups
+    /*
     public void EnableDoubleJump() { doubleJumpEnabled = true; }
     public void DisableDoubleJump() { doubleJumpEnabled = false; }
 
@@ -158,7 +165,5 @@ public class PlayerMovementAissa : MonoBehaviour
 
     public void EnableWallJump() { wallJumpEnabled = true; }
     public void DisableWallJump() { wallJumpEnabled = false; }
-
-    public void EnableProtein() { proteinEnabled = true; }
-    public void DisableProtein() { proteinEnabled = false; }
+    */
 }

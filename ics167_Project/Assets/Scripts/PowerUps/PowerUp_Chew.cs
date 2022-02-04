@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // by Aissa Akiyama
-// TODO: This power-up is not implemented yet
 
-public class PowerUp_Protein : PowerUp
+public class PowerUp_Chew : PowerUp
 {
     protected override void PowerUpApply()
     {
         base.PowerUpApply();
-        player.HasProtein = true;
+        player.HasChew = true;
     }
 
     protected override void PowerUpExpired()
     {
-        player.HasProtein = false;
+        player.HasChew = false;
         base.PowerUpExpired();
     }
 }

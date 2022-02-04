@@ -5,32 +5,41 @@ using UnityEngine;
 // written by Alice Hua
 // sublass of enemies, enemies that has healthbar
 
-public abstract class KillableEnemy : Enemy
+public abstract class KillableEnemy : Enemy, IDamageable
 {
 
     protected int max_health = 100; // can be overrided for variation
-    protected int current_health;
+    public int CurrentHealth { get; set; }
 
     public HealthBar health_bar;
 
     // sets max health to current health
     void Start()
     {
-        current_health = max_health;
+        CurrentHealth = max_health;
         health_bar.SetMaxHealth(max_health);
     }
 
-    // method for taking in damage
-    protected void TakeDamage(int damage)
+    // added by Aissa Akiyama
+    void Update()
     {
-        current_health -= damage;
+        if (CurrentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // method for taking in damage
+    public void TakeDamage(int damage)
+    {
+        CurrentHealth -= damage;
         ChangeHealthBar();
     }
 
     // shows current health to show on the health bar
     void ChangeHealthBar()
     {
-        health_bar.SetHealth(current_health);
+        health_bar.SetHealth(CurrentHealth);
     }
 
     public abstract void OnCollisionEnter2D(Collision2D col);

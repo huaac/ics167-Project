@@ -8,12 +8,12 @@ public class PowerUp_WallJump : PowerUp
     protected override void PowerUpApply()
     {
         base.PowerUpApply();
-        player.EnableWallJump();
+        player.HasWallJump = true;
     }
 
     protected override void PowerUpExpired()
     {
-        player.DisableWallJump();
+        player.HasWallJump = false;
         base.PowerUpExpired();
     }
 }

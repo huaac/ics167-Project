@@ -10,7 +10,7 @@ using UnityEngine;
 
 public abstract class PowerUp : MonoBehaviour
 {
-    protected PlayerMovementAissa player;
+    protected PlayerState player;
     protected SpriteRenderer spriteRenderer;
 
     [SerializeField] private GameEvent OnPowerUpCollected;
@@ -32,7 +32,7 @@ public abstract class PowerUp : MonoBehaviour
 
     protected virtual void PowerUpCollected(GameObject gameObjectCollectingPowerUp)
     {
-        player = gameObjectCollectingPowerUp.GetComponent<PlayerMovementAissa>();
+        player = gameObjectCollectingPowerUp.GetComponent<PlayerState>();
 
         // check if colliding object was player
         if (!player)

@@ -13,12 +13,14 @@ public class Spider : KillableEnemy
     public override void OnCollisionEnter2D(Collision2D col)
     {
         // if player touches spider, player falls down and reset scene
+        /*
         if(col.gameObject.tag == "Player")
         {
             col.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             TakeDamage(50);
             CallResetScene();
         }
+        */
     }
 
 }

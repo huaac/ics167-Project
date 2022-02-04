@@ -10,12 +10,14 @@ public class PowerUp_Speed : PowerUp
     protected override void PowerUpApply()
     {
         base.PowerUpApply();
-        player.EnableSpeed(speedIncrease);
+        //player.HasSpeed = true;
+        player.SpeedMultiplier = speedIncrease;
     }
 
     protected override void PowerUpExpired()
     {
-        player.DisableSpeed();
+        //player.HasSpeed = false;
+        player.SpeedMultiplier = 1f;
         base.PowerUpExpired();
     }
 }

@@ -17,9 +17,9 @@ public class RatTrap : KillableEnemy
         {
             myAnimator = GetComponent<Animator>();
             myAnimator.SetTrigger("Touched");
-            col.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            TakeDamage(50);
-            CallResetScene();
+            //col.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            //TakeDamage(50);
+            //CallResetScene();
         }
     }
 
