@@ -147,7 +147,7 @@ MonoBehaviour:
         m_MethodName: UpdateUI
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: ec5836ad77dfc4cb78c6261f6befbc02,
+          m_ObjectArgument: {fileID: 21300000, guid: 11786a44f66e64b2db80980eb52d827b,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
@@ -1129,7 +1129,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec5836ad77dfc4cb78c6261f6befbc02, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c15274d2b36b74bf6992a02f5a84d2f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
