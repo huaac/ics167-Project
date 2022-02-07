@@ -13,6 +13,7 @@ using UnityEngine;
 public class PlayerState : MonoBehaviour
 {
     // bool's to enable/disable power ups
+    private bool isUsingPowerUp;
     private bool doubleJumpEnabled;
     //private bool speedEnabled;
     private bool wallJumpEnabled;
@@ -20,6 +21,12 @@ public class PlayerState : MonoBehaviour
     private bool chewEnabled;
 
     private float speedMultiplier;
+
+    public bool IsUsingPowerUp
+    {
+        get { return isUsingPowerUp; }
+        set { isUsingPowerUp = value; }
+    }
 
     public bool HasDoubleJump
     {

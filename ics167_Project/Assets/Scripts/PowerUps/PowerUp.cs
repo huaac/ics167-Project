@@ -39,6 +39,11 @@ public abstract class PowerUp : MonoBehaviour
         {
             return;
         }
+        // check if player isn't using a powerup already
+        if (player.IsUsingPowerUp)
+        {
+            return;
+        }
         // check if we haven't been collected before
         if (isInUse)
         {
@@ -54,11 +59,12 @@ public abstract class PowerUp : MonoBehaviour
 
     protected virtual void PowerUpApply()
     {
-        
+        player.IsUsingPowerUp = true;
     }
 
     protected virtual void PowerUpExpired()
     {
+        player.IsUsingPowerUp = false;
         OnPowerUpExpired.Raise(); // raise game event associated with expiration of power-ups
         DestroySelf();
     }
