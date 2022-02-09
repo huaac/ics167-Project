@@ -908,6 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523acf945bc4340ac856daac933d25d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPlayerDied: {fileID: 11400000, guid: a43427908445043b1bbbec830f7e4f78, type: 2}
 --- !u!114 &1117536634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,6 +1379,10 @@ GameObject:
   - component: {fileID: 1359620608}
   - component: {fileID: 1359620607}
   - component: {fileID: 1359620610}
+  - component: {fileID: 1359620614}
+  - component: {fileID: 1359620612}
+  - component: {fileID: 1359620611}
+  - component: {fileID: 1359620613}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1463,6 +1468,87 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player1: {fileID: 565437415}
+--- !u!114 &1359620611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359620606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d141cd23c1d34558a0d2ec8a3453357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: a43427908445043b1bbbec830f7e4f78, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359620612}
+        m_MethodName: DecrementPlayerCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1359620612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359620606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b350ae3cae944e2bf8713eeda8557f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEveryoneDied: {fileID: 11400000, guid: b640396dec8404329933f5476ab63421, type: 2}
+  playerCount: 1
+--- !u!114 &1359620613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359620606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d141cd23c1d34558a0d2ec8a3453357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: b640396dec8404329933f5476ab63421, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359620614}
+        m_MethodName: ResetScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1359620614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359620606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7494c407585f677478123a55bbdded26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelRestartDelay: 2
 --- !u!1001 &1518319540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2113,6 +2199,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338139409904664949, guid: 0588798cedaee2f4383f84b5edc32d8f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1338139409904664951, guid: 0588798cedaee2f4383f84b5edc32d8f,
         type: 3}

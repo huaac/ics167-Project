@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
+    [SerializeField] private GameEvent OnPlayerDied;
+
+    private Rigidbody2D m_rb;
+    private Animator m_anim;
     private PlayerState m_playerState;
 
     private void Awake()
     {
+        m_rb = GetComponent<Rigidbody2D>();
+        m_anim = GetComponent<Animator>();
         m_playerState = GetComponent<PlayerState>();
     }
 
@@ -30,18 +36,12 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
-    protected void ResetScene()
-    {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
-    }
+    // play death animation, disable movement, raise OnPlayerDied event
     private void Die()
     {
-        // do something when player dies... right now this logic was copy-pasted from Alice's enemy scripts
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        Invoke("ResetScene", 1f);
-
-        return;
+        m_anim.SetTrigger("death");
+        m_rb.bodyType = RigidbodyType2D.Static;
+        OnPlayerDied.Raise();
     }
 
     private void HitDamageable(GameObject damageable)
@@ -71,12 +71,4 @@ public class PlayerLife : MonoBehaviour
             return;
         }
     }
-
-    /*
-    public void EnableProtein() { proteinEnabled = true; }
-    public void DisableProtein() { proteinEnabled = false; }
-
-    public void EnableChew() { chewEnabled = true; }
-    public void DisableChew() { chewEnabled = false; }
-    */
 }
