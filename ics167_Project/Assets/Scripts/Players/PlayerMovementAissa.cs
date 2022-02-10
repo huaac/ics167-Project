@@ -74,7 +74,7 @@ public class PlayerMovementAissa : MonoBehaviour
             {
                 if (!isDoubleJumping)
                 {
-                    // double jump
+                    // double jump only when player isn't already double jumping
                     m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
                     isDoubleJumping = true;
                 }
@@ -83,6 +83,7 @@ public class PlayerMovementAissa : MonoBehaviour
             // wall jump
             if (!IsGrounded() && m_playerState.HasWallJump && canWallJump)
             {
+                Debug.Log(wallNormal.x * m_jumpSpeed);
                 m_rb.velocity = new Vector2(m_rb.velocity.x * wallNormal.x, m_jumpSpeed);
                 canWallJump = false;
             }
@@ -133,16 +134,20 @@ public class PlayerMovementAissa : MonoBehaviour
         return Physics2D.BoxCast(m_collider.bounds.center, m_collider.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // A function that detects if a player can wall jump
+    private void DetectWallJump(Vector2 normal)
     {
-        // wall detector code for wall jump
-        Vector2 normal = collision.GetContact(0).normal;
         if (!IsGrounded() && (normal == new Vector2(1f, 0f) || normal == new Vector2(-1f, 0f)))
         {
             // if player is not grounded + normals are horizontal (collision is against wall)
             canWallJump = true;
             wallNormal = normal;
         }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         if (collision.gameObject.tag == "Finish")   // by Mindy Jun
         {
             GameManager.Instance.completedLevels += 1;
@@ -150,20 +155,10 @@ public class PlayerMovementAissa : MonoBehaviour
         }
     }
 
-
-    // enabling/disabling power ups
-    /*
-    public void EnableDoubleJump() { doubleJumpEnabled = true; }
-    public void DisableDoubleJump() { doubleJumpEnabled = false; }
-
-    public void EnableSpeed(float speedIncreaseAmount)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        speedEnabled = true;
-        speedIncrease = speedIncreaseAmount;
+        Vector2 normal = collision.GetContact(0).normal;
+        DetectWallJump(normal);
     }
-    public void DisableSpeed() { speedEnabled = false; }
 
-    public void EnableWallJump() { wallJumpEnabled = true; }
-    public void DisableWallJump() { wallJumpEnabled = false; }
-    */
 }
