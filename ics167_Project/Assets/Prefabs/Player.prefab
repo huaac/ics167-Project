@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1338139409904664955}
   - component: {fileID: 1338139409904664954}
   - component: {fileID: 1338139409904664953}
+  - component: {fileID: 1117536633}
+  - component: {fileID: 1117536634}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -72,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -536049269
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -5115618752126089108, guid: edce8a8401f544195a4ffb1cef884513,
     type: 3}
@@ -164,11 +166,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac44d0d02b07d4487ab4f1a324c137e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HorizontalAxis: Horizontal
-  JumpButton: Jump
+  HorizontalAxis: Horizontal1
+  JumpButton: Jump1
   m_moveSpeed: 5
   m_jumpSpeed: 7
   jumpableGround:
     serializedVersion: 2
     m_Bits: 256
   OnPowerUpExpired: {fileID: 11400000, guid: ecec4b52d0ec64ecbacb23db2f6a5467, type: 2}
+--- !u!114 &1117536633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338139409904664951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523acf945bc4340ac856daac933d25d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPlayerDied: {fileID: 11400000, guid: a43427908445043b1bbbec830f7e4f78, type: 2}
+--- !u!114 &1117536634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338139409904664951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8388d1dda2e4c8db51013b316796b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
