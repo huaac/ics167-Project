@@ -8,12 +8,14 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private GameEvent OnPlayerDied;
 
     private Rigidbody2D m_rb;
+    private BoxCollider2D m_collider;
     private Animator m_anim;
     private PlayerState m_playerState;
 
     private void Awake()
     {
         m_rb = GetComponent<Rigidbody2D>();
+        m_collider = GetComponent<BoxCollider2D>();
         m_anim = GetComponent<Animator>();
         m_playerState = GetComponent<PlayerState>();
     }
@@ -41,6 +43,9 @@ public class PlayerLife : MonoBehaviour
     {
         m_anim.SetTrigger("death");
         m_rb.bodyType = RigidbodyType2D.Static;
+        m_collider.enabled = false;
+
+        m_playerState.IsDead = true;
         OnPlayerDied.Raise();
     }
 

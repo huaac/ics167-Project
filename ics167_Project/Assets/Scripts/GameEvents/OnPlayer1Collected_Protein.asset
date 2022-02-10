@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 404a34ecb153447e68b7d1fa11291812, type: 3}
-  m_Name: OnPowerUpExpired
+  m_Name: OnPlayer1Collected_Protein
   m_EditorClassIdentifier: 

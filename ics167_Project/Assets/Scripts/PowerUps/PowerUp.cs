@@ -11,10 +11,14 @@ using UnityEngine;
 public abstract class PowerUp : MonoBehaviour
 {
     protected PlayerState player;
-    protected SpriteRenderer spriteRenderer;
+    protected SpriteRenderer m_sprite;
+    protected BoxCollider2D m_collider;
 
-    [SerializeField] private GameEvent OnPowerUpCollected;
-    [SerializeField] private GameEvent OnPowerUpExpired;
+    [SerializeField] private GameEvent OnPlayer1Collected;
+    [SerializeField] private GameEvent OnPlayer1Expired;
+    [SerializeField] private GameEvent OnPlayer2Collected;
+    [SerializeField] private GameEvent OnPlayer2Expired;
+
     [SerializeField] private float timer = 5f;
 
     private bool isInUse;
@@ -22,7 +26,8 @@ public abstract class PowerUp : MonoBehaviour
 
     protected virtual void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        m_collider = GetComponent<BoxCollider2D>();
+        m_sprite = GetComponent<SpriteRenderer>();
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
@@ -51,10 +56,16 @@ public abstract class PowerUp : MonoBehaviour
         }
         isInUse = true;
 
-        OnPowerUpCollected.Raise(); // raise game event associated with collection of this power-up
+
+        if (player.PlayerID == 1)
+            OnPlayer1Collected.Raise();
+        else if (player.PlayerID == 2)
+            OnPlayer2Collected.Raise();
+
         PowerUpApply();
 
-        spriteRenderer.enabled = false;
+        m_sprite.enabled = false;
+        m_collider.enabled = false;
     }
 
     protected virtual void PowerUpApply()
@@ -65,7 +76,12 @@ public abstract class PowerUp : MonoBehaviour
     protected virtual void PowerUpExpired()
     {
         player.IsUsingPowerUp = false;
-        OnPowerUpExpired.Raise(); // raise game event associated with expiration of power-ups
+
+        if (player.PlayerID == 1)
+            OnPlayer1Expired.Raise();
+        else if (player.PlayerID == 2)
+            OnPlayer2Expired.Raise();
+
         DestroySelf();
     }
 
@@ -80,7 +96,7 @@ public abstract class PowerUp : MonoBehaviour
         if (isInUse)
         {
             timer -= Time.deltaTime;
-            if (timer < 0)
+            if (timer < 0 || player.IsDead)
             {
                 isInUse = false;
                 PowerUpExpired();

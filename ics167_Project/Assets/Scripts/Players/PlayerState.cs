@@ -12,8 +12,12 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
-    // bool's to enable/disable power ups
+    [SerializeField] private int playerID;
+
+    private bool isDead;
     private bool isUsingPowerUp;
+
+    // bool's to enable/disable power ups
     private bool doubleJumpEnabled;
     //private bool speedEnabled;
     private bool wallJumpEnabled;
@@ -22,11 +26,24 @@ public class PlayerState : MonoBehaviour
 
     private float speedMultiplier;
 
+
+    public int PlayerID
+    {
+        get { return playerID; }
+    }
+
+    public bool IsDead
+    {
+        get { return isDead; }
+        set { isDead = value; }
+    }
+
     public bool IsUsingPowerUp
     {
         get { return isUsingPowerUp; }
         set { isUsingPowerUp = value; }
     }
+
 
     public bool HasDoubleJump
     {
