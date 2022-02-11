@@ -9,12 +9,12 @@ public class PowerUp_DoubleJump : PowerUp
     protected override void PowerUpApply()
     {
         base.PowerUpApply();
-        player.HasDoubleJump = true;
+        player.EnableDoubleJump();
     }
 
     protected override void PowerUpExpired()
     {
-        player.HasDoubleJump = false;
+        player.DisableDoubleJump();
         base.PowerUpExpired();
     }
 }

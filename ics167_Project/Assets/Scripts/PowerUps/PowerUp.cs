@@ -70,12 +70,12 @@ public abstract class PowerUp : MonoBehaviour
 
     protected virtual void PowerUpApply()
     {
-        player.IsUsingPowerUp = true;
+        player.SetToPowerUp();
     }
 
     protected virtual void PowerUpExpired()
     {
-        player.IsUsingPowerUp = false;
+        player.SetToNoPowerUp();
 
         if (player.PlayerID == 1)
             OnPlayer1Expired.Raise();

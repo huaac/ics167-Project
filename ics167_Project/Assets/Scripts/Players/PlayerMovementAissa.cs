@@ -47,11 +47,6 @@ public class PlayerMovementAissa : MonoBehaviour
         m_playerState = GetComponent<PlayerState>();
     }
 
-    private void Start()
-    {
-        m_playerState.SpeedMultiplier = 1f;
-    }
-
     private void Update()
     {
         // horizontal movement

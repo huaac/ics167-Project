@@ -45,7 +45,7 @@ public class PlayerLife : MonoBehaviour
         m_rb.bodyType = RigidbodyType2D.Static;
         m_collider.enabled = false;
 
-        m_playerState.IsDead = true;
+        m_playerState.SetToDead();
         OnPlayerDied.Raise();
     }
 

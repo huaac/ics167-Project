@@ -24,7 +24,7 @@ public class PlayerState : MonoBehaviour
     private bool proteinEnabled;
     private bool chewEnabled;
 
-    private float speedMultiplier;
+    private float speedMultiplier = 1f;
 
 
     public int PlayerID
@@ -35,51 +35,88 @@ public class PlayerState : MonoBehaviour
     public bool IsDead
     {
         get { return isDead; }
-        set { isDead = value; }
+    }
+    public void SetToDead()
+    {
+        isDead = true;
     }
 
     public bool IsUsingPowerUp
     {
         get { return isUsingPowerUp; }
-        set { isUsingPowerUp = value; }
+    }
+    public void SetToPowerUp()
+    {
+        isUsingPowerUp = true;
+    }
+    public void SetToNoPowerUp()
+    {
+        isUsingPowerUp = false;
     }
 
 
     public bool HasDoubleJump
     {
         get { return doubleJumpEnabled; }
-        set { doubleJumpEnabled = value; }
     }
-
-    /*
-    public bool HasSpeed
+    public void EnableDoubleJump()
     {
-        get { return speedEnabled; }
-        set { speedEnabled = value; }
+        doubleJumpEnabled = true;
     }
-    */
+    public void DisableDoubleJump()
+    {
+        doubleJumpEnabled = false;
+    }
 
     public float SpeedMultiplier
     {
         get { return speedMultiplier; }
-        set { speedMultiplier = value; }
+    }
+    public void EnableSpeed(float speed)
+    {
+        speedMultiplier = speed;
+    }
+    public void DisableSpeed()
+    {
+        speedMultiplier = 1f;
     }
 
     public bool HasWallJump
     {
         get { return wallJumpEnabled; }
-        set { wallJumpEnabled = value; }
+    }
+    public void EnableWallJump()
+    {
+        wallJumpEnabled = true;
+    }
+    public void DisableWallJump()
+    {
+        wallJumpEnabled = false;
     }
 
     public bool HasProtein
     {
         get { return proteinEnabled; }
-        set { proteinEnabled = value; }
+    }
+    public void EnableProtein()
+    {
+        proteinEnabled = true;
+    }
+    public void DisableProtein()
+    {
+        proteinEnabled = false;
     }
 
     public bool HasChew
     {
         get { return chewEnabled; }
-        set { chewEnabled = value; }
+    }
+    public void EnableChew()
+    {
+        chewEnabled = true;
+    }
+    public void DisableChew()
+    {
+        chewEnabled = false;
     }
 }

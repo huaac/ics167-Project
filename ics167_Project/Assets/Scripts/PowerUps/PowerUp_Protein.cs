@@ -10,12 +10,12 @@ public class PowerUp_Protein : PowerUp
     protected override void PowerUpApply()
     {
         base.PowerUpApply();
-        player.HasProtein = true;
+        player.EnableProtein();
     }
 
     protected override void PowerUpExpired()
     {
-        player.HasProtein = false;
+        player.DisableProtein();
         base.PowerUpExpired();
     }
 }

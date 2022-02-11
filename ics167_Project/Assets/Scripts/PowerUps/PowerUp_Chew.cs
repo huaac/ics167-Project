@@ -9,12 +9,12 @@ public class PowerUp_Chew : PowerUp
     protected override void PowerUpApply()
     {
         base.PowerUpApply();
-        player.HasChew = true;
+        player.EnableChew();
     }
 
     protected override void PowerUpExpired()
     {
-        player.HasChew = false;
+        player.DisableChew();
         base.PowerUpExpired();
     }
 }
