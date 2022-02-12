@@ -143,6 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c060485d7ede647d5abf0fb916c7020e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPowerUpCollected: {fileID: 11400000, guid: 086886d3d6add47849113be8ad5254b3, type: 2}
-  OnPowerUpExpired: {fileID: 11400000, guid: ecec4b52d0ec64ecbacb23db2f6a5467, type: 2}
+  OnPlayer1Collected: {fileID: 11400000, guid: 086886d3d6add47849113be8ad5254b3, type: 2}
+  OnPlayer1Expired: {fileID: 11400000, guid: ecec4b52d0ec64ecbacb23db2f6a5467, type: 2}
+  OnPlayer2Collected: {fileID: 11400000, guid: fac893a59ad4a428e80b8fef3232d0e4, type: 2}
+  OnPlayer2Expired: {fileID: 11400000, guid: 8ad2b188712f844659acec1db6314a41, type: 2}
   timer: 5
