@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 12935065}
   - component: {fileID: 12935064}
   - component: {fileID: 12935063}
+  - component: {fileID: 12935066}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -151,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
+  m_HorizontalAxis: Horizontal1
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
@@ -187,6 +188,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &12935066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12935062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal2
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!4 &53722914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6182191330459352515, guid: 556a20ea5a81d274bbda6d1894bc23b6,
@@ -865,6 +885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7494c407585f677478123a55bbdded26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelRestartDelay: 0
 --- !u!4 &377515617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6930187312398829076, guid: 96691bd9e12be1b4f9b79d0aa69d3533,
@@ -959,7 +980,7 @@ GameObject:
   - component: {fileID: 411134362}
   - component: {fileID: 411134361}
   m_Layer: 5
-  m_Name: Back Button
+  m_Name: Restart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -982,8 +1003,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -121.4875, y: 0}
-  m_SizeDelta: {x: 121.4875, y: 44.70456}
+  m_AnchoredPosition: {x: -157.12, y: 0}
+  m_SizeDelta: {x: 157.12215, y: 44.70456}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &411134361
 MonoBehaviour:
@@ -1029,7 +1050,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 374284364}
-        m_MethodName: GoToMenu
+        m_MethodName: ResetScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2342,7 +2363,7 @@ PrefabInstance:
     - target: {fileID: 1338139409904664948, guid: 0588798cedaee2f4383f84b5edc32d8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.05
+      value: 17.88
       objectReference: {fileID: 0}
     - target: {fileID: 1338139409904664948, guid: 0588798cedaee2f4383f84b5edc32d8f,
         type: 3}
@@ -3820,8 +3841,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 64.5, y: -24}
-  m_SizeDelta: {x: 129, y: 48}
+  m_AnchoredPosition: {x: 78.561, y: -22.352}
+  m_SizeDelta: {x: 157.12183, y: 44.70456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1407613531
 MonoBehaviour:
@@ -3842,7 +3863,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BACK
+  m_text: RESTART
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//written by Mindy Jun
+// written by Mindy Jun
 // level restart added by Aissa Akiyama
 
 public class SceneScript : MonoBehaviour
