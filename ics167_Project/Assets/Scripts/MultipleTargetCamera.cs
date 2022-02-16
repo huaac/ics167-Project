@@ -44,7 +44,8 @@ public class MultipleTargetCamera : MonoBehaviour
     void Zoom() 
     {
         float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
+        //cam.fieldOfView = Mathf.SmoothDamp()*
+        cam.orthographicSize = newZoom;
     }
 
     //Instead of having the camera's position be the centerpoint, there is an offset to account for zoom.
@@ -55,7 +56,8 @@ public class MultipleTargetCamera : MonoBehaviour
         Vector3 newPosition = centerPoint + offset;
         Vector3 rawPosition = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
 
-        transform.position = new Vector3(rawPosition.x, rawPosition.y, -1);
+        //transform.position = new Vector3(rawPosition.x, rawPosition.y, -1);
+        transform.position = new Vector3(rawPosition.x, rawPosition.y, rawPosition.z);
     }
 
     float GetGreatestDistance() 
