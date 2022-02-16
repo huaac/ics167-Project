@@ -4,6 +4,7 @@ using UnityEngine;
 
 //Written by Mindy Jun
 
+[RequireComponent(typeof(Camera))]
 public class MultipleTargetCamera : MonoBehaviour
 {
     //This is a list of what the camera should be following
@@ -14,8 +15,15 @@ public class MultipleTargetCamera : MonoBehaviour
 
     public float minZoom = 40f;
     public float maxZoom = 10f;
+    public float zoomLimiter = 50f;
 
     private Vector3 velocity;
+    private Camera cam;
+
+    void Start() 
+    {
+        cam = GetComponent<Camera>();
+    }
     
     //The camera should move after everything else has moved, hence LateUpdate not Update.
     //Controlls zooming by editing field of view
@@ -31,9 +39,12 @@ public class MultipleTargetCamera : MonoBehaviour
         Zoom();
     }
 
+    //Lerp() interpolates between two numbers depending on the third value
+    //this doesn't work :( bc projection is in orthographic
     void Zoom() 
     {
-        Debug.Log(GetGreatestDistance());
+        float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
     }
 
     //Instead of having the camera's position be the centerpoint, there is an offset to account for zoom.
@@ -42,8 +53,9 @@ public class MultipleTargetCamera : MonoBehaviour
         Vector3 centerPoint = GetCenterPoint();
 
         Vector3 newPosition = centerPoint + offset;
+        Vector3 rawPosition = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
 
-        transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
+        transform.position = new Vector3(rawPosition.x, rawPosition.y, -1);
     }
 
     float GetGreatestDistance() 

@@ -5035,7 +5035,7 @@ Camera:
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
-  m_FOVAxisMode: 0
+  m_FOVAxisMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_FocalLength: 50
@@ -5095,6 +5095,10 @@ MonoBehaviour:
   - {fileID: 1661096781}
   - {fileID: 616155486}
   offset: {x: 0, y: 0, z: 0}
+  smoothTime: 0.5
+  minZoom: 40
+  maxZoom: 10
+  zoomLimiter: 50
 --- !u!1001 &1692544810
 PrefabInstance:
   m_ObjectHideFlags: 0
