@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private GameEvent OnPlayerDied;
+    [SerializeField] private float levelRestartDelay;
 
     private Rigidbody2D m_rb;
     private BoxCollider2D m_collider;
@@ -38,7 +39,7 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
-    // play death animation, disable movement, raise OnPlayerDied event
+    // play death animation, disable movement, raise OnPlayerDied event, reset scene
     private void Die()
     {
         m_anim.SetTrigger("death");
@@ -47,6 +48,7 @@ public class PlayerLife : MonoBehaviour
 
         m_playerState.SetToDead();
         OnPlayerDied.Raise();
+        ResetScene();
     }
 
     private void HitDamageable(GameObject damageable)
@@ -75,5 +77,17 @@ public class PlayerLife : MonoBehaviour
             chewableobject.TakeDamage(100);
             return;
         }
+    }
+
+    public void ResetScene()
+    {
+        StartCoroutine(ResetAfterDelay(levelRestartDelay));
+    }
+
+    private IEnumerator ResetAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }
