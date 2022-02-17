@@ -16,12 +16,6 @@ public class PlayerMovementAissa : MonoBehaviour
     private Animator m_anim;
     private PlayerState m_playerState;
 
-    // Restart and Menu Settings by Mindy Jun
-    [Header("Restart and Menu Settings")]
-    [SerializeField] private float levelRestartDelay;
-    public GameObject optionsMenu;
-    public GameObject dimImage;
-
     [Header("Input Settings")]
     [SerializeField] private string HorizontalAxis;
     [SerializeField] private string JumpButton;
@@ -87,19 +81,6 @@ public class PlayerMovementAissa : MonoBehaviour
                 canWallJump = false;
             }
         }
-
-        // Restart and Escape functionality by Mindy Jun
-        if (Input.GetButtonDown("Restart")) 
-        {
-            ResetScene();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
-            dimImage.gameObject.SetActive(!dimImage.gameObject.activeSelf);
-        }
-
         UpdateAnimation();
     }
 
@@ -178,18 +159,5 @@ public class PlayerMovementAissa : MonoBehaviour
     {
         Vector2 normal = collision.GetContact(0).normal;
         DetectWallJump(normal);
-    }
-
-    // Resets current level
-    public void ResetScene()
-    {
-        StartCoroutine(ResetAfterDelay(levelRestartDelay));
-    }
-
-    private IEnumerator ResetAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
     }
 }
