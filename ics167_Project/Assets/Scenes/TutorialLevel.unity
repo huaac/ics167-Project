@@ -1319,7 +1319,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1262310896}
-        m_MethodName: ResetScene
+        m_MethodName: GoToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5035,12 +5035,12 @@ PrefabInstance:
     - target: {fileID: 4038192634204809750, guid: 571fe69e528624025aa0f4ed8b7ad7dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 159.4
       objectReference: {fileID: 0}
     - target: {fileID: 4038192634204809750, guid: 571fe69e528624025aa0f4ed8b7ad7dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8502391
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4038192634204809750, guid: 571fe69e528624025aa0f4ed8b7ad7dd,
         type: 3}
@@ -5687,7 +5687,7 @@ MonoBehaviour:
   - {fileID: 616155486}
   offset: {x: 0, y: 0, z: 0}
   smoothTime: 0.5
-  minZoom: 10
+  minZoom: 40
   maxZoom: 4
   zoomLimiter: 50
 --- !u!1001 &1692544810
