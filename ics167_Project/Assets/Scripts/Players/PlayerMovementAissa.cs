@@ -137,13 +137,21 @@ public class PlayerMovementAissa : MonoBehaviour
         }
     }
 
-
+    // by Mindy Jun
+    // If a player collides with the finishing hole, the next level is loaded.
+    //
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Finish")   // by Mindy Jun
+        if (collision.gameObject.tag == "Finish")
         {
             GameManager.Instance.completedLevels += 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+            int currentLevel = SceneManager.GetActiveScene().buildIndex;
+            if (currentLevel >= PlayerPrefs.GetInt("levelsUnlocked")) 
+            {
+                PlayerPrefs.SetInt("levelsUnlocked", currentLevel);
+            }
         }
     }
 
