@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// by Aissa Akiyama
+/// A class that manages the player's death.
+/// When a player hits an enemy, it either dies or instead kills it if it is a killable enemy
+/// and the player has the protein powerup.
+/// The player also dies when the other player dies.
+/// </summary>
+
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private GameEvent OnPlayerDied;
@@ -25,8 +33,7 @@ public class PlayerLife : MonoBehaviour
     {
         // check if collision was with damageable object (killable enemy or chewable)
         // if so, we may need to do specific things
-        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-        if (damageable != null)
+        if (collision.gameObject.TryGetComponent(out IDamageable damageable))
         {
             HitDamageable(collision.gameObject);
             return;
@@ -39,8 +46,8 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
-    // play death animation, disable movement, raise OnPlayerDied event, reset scene
-    private void Die()
+    // play death animation, disable movement, raise OnPlayerDied event
+    public void Die()
     {
         m_anim.SetTrigger("death");
         m_rb.bodyType = RigidbodyType2D.Static;
@@ -48,19 +55,17 @@ public class PlayerLife : MonoBehaviour
 
         m_playerState.SetToDead();
         OnPlayerDied.Raise();
-        ResetScene();
     }
 
     private void HitDamageable(GameObject damageable)
     {
         // check if the gameobject player hit was killable enemy
         // attack the enemy if player has protein power-up; else die
-        KillableEnemy killableenemy = damageable.GetComponent<KillableEnemy>();
-        if (killableenemy != null)
+        if (damageable.TryGetComponent(out KillableEnemy killable))
         {
             if (m_playerState.HasProtein)
             {
-                killableenemy.TakeDamage(50);
+                killable.TakeDamage(50);
                 return;
             }
             else
@@ -71,23 +76,10 @@ public class PlayerLife : MonoBehaviour
 
         // check if the gameobject player hit was chewable
         // chew through it if player has chew power-up
-        ChewableObject chewableobject = damageable.GetComponent<ChewableObject>();
-        if (chewableobject != null && m_playerState.HasChew)
+        if (damageable.TryGetComponent(out ChewableObject chewable) && m_playerState.HasChew)
         {
-            chewableobject.TakeDamage(100);
+            chewable.TakeDamage(100);
             return;
         }
-    }
-
-    public void ResetScene()
-    {
-        StartCoroutine(ResetAfterDelay(levelRestartDelay));
-    }
-
-    private IEnumerator ResetAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
     }
 }

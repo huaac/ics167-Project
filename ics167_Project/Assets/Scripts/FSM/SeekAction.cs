@@ -18,7 +18,7 @@ public class SeekAction : Action
 
     private GameObject GetTarget(HelperFSM machine)
     {
-        return machine.SearchRange.GetComponent<EnemyDetector>().EnteredEnemy;
+        return machine.Detector.EnteredEnemy;
     }
 }
 

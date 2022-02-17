@@ -7,7 +7,7 @@ public class FoundEnemyDecision : Decision
 {
     public override bool Decide(HelperFSM machine)
     {
-        GameObject possibleEnemy = machine.SearchRange.GetComponent<EnemyDetector>().EnteredEnemy;
+        GameObject possibleEnemy = machine.Detector.EnteredEnemy;
 
         return possibleEnemy != null;
     }

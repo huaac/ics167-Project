@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private GameEvent OnEveryoneDied;
+    //[SerializeField] private PlayerLife[] players;
     [SerializeField] private int playerCount = 2;
+    [SerializeField] private GameEvent OnEveryoneDied;
 
     private bool everyoneAlreadyDied;
 

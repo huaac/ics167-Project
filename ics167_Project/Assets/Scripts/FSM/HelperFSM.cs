@@ -13,6 +13,7 @@ public class HelperFSM : MonoBehaviour
     private Vector2 homePosition;
 
     [SerializeField] private GameObject searchRange;
+    private EnemyDetector enemyDetector;
     private NavMeshAgent agent;
 
     private Rigidbody2D rb;
@@ -27,6 +28,7 @@ public class HelperFSM : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        enemyDetector = searchRange.GetComponent<EnemyDetector>();
 
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
@@ -74,9 +76,9 @@ public class HelperFSM : MonoBehaviour
         get { return offset; }
     }
 
-    public GameObject SearchRange
+    public EnemyDetector Detector
     {
-        get { return searchRange; }
+        get { return enemyDetector; }
     }
 
     public NavMeshAgent Agent

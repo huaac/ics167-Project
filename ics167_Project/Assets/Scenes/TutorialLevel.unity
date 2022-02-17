@@ -2393,6 +2393,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1669427459}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &755292589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4038192634204809749, guid: 571fe69e528624025aa0f4ed8b7ad7dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1614069149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &755292591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3069357603305663003, guid: 571fe69e528624025aa0f4ed8b7ad7dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1614069149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755292589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523acf945bc4340ac856daac933d25d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &755292597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755292589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d141cd23c1d34558a0d2ec8a3453357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 7952fa2cb55d14f8f9f409f4d038872f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 755292591}
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &757499231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3440,6 +3485,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c42d06bb114ca584c951f0ec89953573, type: 3}
+--- !u!1 &1172566378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3703940966269962957, guid: 579aa2bf6f5104d2f836d3ffc03b2a31,
+    type: 3}
+  m_PrefabInstance: {fileID: 1109408957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1172566380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2446875284298009283, guid: 579aa2bf6f5104d2f836d3ffc03b2a31,
+    type: 3}
+  m_PrefabInstance: {fileID: 1109408957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172566378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523acf945bc4340ac856daac933d25d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1172566386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172566378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d141cd23c1d34558a0d2ec8a3453357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: a43427908445043b1bbbec830f7e4f78, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1172566380}
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1195526901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2121859986713108554, guid: 17195e313fe4c884aaccbd53b15f2b60,
@@ -5614,8 +5704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b350ae3cae944e2bf8713eeda8557f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnEveryoneDied: {fileID: 11400000, guid: b640396dec8404329933f5476ab63421, type: 2}
   playerCount: 2
+  OnEveryoneDied: {fileID: 11400000, guid: b640396dec8404329933f5476ab63421, type: 2}
 --- !u!114 &1677069244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5722,7 +5812,7 @@ MonoBehaviour:
   targets:
   - {fileID: 1661096781}
   - {fileID: 616155486}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: -2}
   smoothTime: 0.5
   minZoom: 40
   maxZoom: 4
