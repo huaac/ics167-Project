@@ -22,9 +22,24 @@ public class AdditionalInputs : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
-            dimImage.gameObject.SetActive(!dimImage.gameObject.activeSelf);
+            Pause();
         }
+    }
+
+    // enable and disable menu screen. freeze game while in menu.
+    public void Pause() 
+    {
+        if (!optionsMenu.gameObject.activeSelf)
+            Time.timeScale = 0f;
+        else
+            Unfreeze();
+        optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
+        dimImage.gameObject.SetActive(!dimImage.gameObject.activeSelf);
+    }
+
+    public void Unfreeze() 
+    {
+        Time.timeScale = 1f;
     }
 
     // Resets current level
