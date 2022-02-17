@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: SeekState
   m_EditorClassIdentifier: 
   action: {fileID: 11400000, guid: b8ff263f9f79d4e9a9cde96103038f87, type: 2}
-  animationState: 1
-  transitions: []
+  animState: 1
+  transitions:
+  - decision: {fileID: 11400000, guid: d4c5337d2068d482eb234fb3064fc470, type: 2}
+    newState: {fileID: 11400000, guid: bbdaccaa6e8234c14b8c55368b45cfe7, type: 2}
+  - decision: {fileID: 11400000, guid: 516c1e71f689145a9a94662178df1180, type: 2}
+    newState: {fileID: 11400000, guid: 71f9e7ce74951408883e60ba4ba15e03, type: 2}

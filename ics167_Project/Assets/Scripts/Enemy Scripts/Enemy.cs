@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 // attempt on Factory Method as we will have more enemies
 // simply for playtest 1. Will be changed in the future
 
+// edited by Aissa Akiyama
+
 public abstract class Enemy : MonoBehaviour
 {
     // restarts to scene. to be used when enemy kills player
@@ -21,4 +23,13 @@ public abstract class Enemy : MonoBehaviour
     {
         Invoke("ResetScene",1f);
     }
+
+
+    // Methods for the Helper to call when attacking/freezing an enemy
+    public void ApplyHelperAttack(int damage)
+    {
+        OnHelperAttack(damage);
+    }
+
+    protected virtual void OnHelperAttack(int damage) { }
 }

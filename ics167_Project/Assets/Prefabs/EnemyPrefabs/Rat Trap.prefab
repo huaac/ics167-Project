@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 65842137776642521}
   - component: {fileID: 65842137776642518}
   - component: {fileID: 65842137776642520}
+  - component: {fileID: 7359656092720276489}
   m_Layer: 0
   m_Name: Rat Trap
   m_TagString: Enemy
@@ -398,7 +399,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.003934264, y: -0.29901293}
+  m_Offset: {x: -0.0005721748, y: -0.29677153}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -409,7 +410,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4759438, y: 0.24054962}
+  m_Size: {x: 1.5633588, y: 0.2764119}
   m_EdgeRadius: 0
 --- !u!114 &65842137776642520
 MonoBehaviour:
@@ -424,6 +425,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health_bar: {fileID: 65842137754133385}
+--- !u!50 &7359656092720276489
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65842137776642517}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &65842138240789064
 GameObject:
   m_ObjectHideFlags: 0

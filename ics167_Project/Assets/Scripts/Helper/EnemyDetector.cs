@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyDetector : MonoBehaviour
 {
-    [SerializeField] private Transform searcher;
+    //[SerializeField] private Transform searcher;
     private GameObject enemy;
 
     private void Update()
     {
-        gameObject.transform.position = searcher.transform.position;
+        //gameObject.transform.position = searcher.transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

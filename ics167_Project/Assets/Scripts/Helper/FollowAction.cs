@@ -7,6 +7,6 @@ public class FollowAction : Action
 {
     public override void Act(HelperFSM machine)
     {
-        machine.transform.position = machine.HomePosition;
+        machine.gameObject.transform.position = machine.HomePosition;
     }
 }

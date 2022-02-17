@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "FSM/Decisions/Found Enemy")]
+[CreateAssetMenu(menuName = "FSM/Decisions/Found Enemy", order = 53)]
 public class FoundEnemyDecision : Decision
 {
     public override bool Decide(HelperFSM machine)

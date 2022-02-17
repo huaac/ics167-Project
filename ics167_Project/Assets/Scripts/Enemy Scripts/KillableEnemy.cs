@@ -5,6 +5,8 @@ using UnityEngine;
 // written by Alice Hua
 // sublass of enemies, enemies that has healthbar
 
+// edited by Aissa Akiyama
+
 public abstract class KillableEnemy : Enemy, IDamageable
 {
 
@@ -43,4 +45,11 @@ public abstract class KillableEnemy : Enemy, IDamageable
     }
 
     public abstract void OnCollisionEnter2D(Collision2D col);
+
+    // A killable enemy will take damage when the Helper attacks it, just like
+    // when a player with the protein powerup attacks it.
+    protected override void OnHelperAttack(int damage)
+    {
+        TakeDamage(damage);
+    }
 }

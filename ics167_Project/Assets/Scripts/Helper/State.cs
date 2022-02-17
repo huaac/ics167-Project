@@ -2,12 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// by Aissa Akiyama
+/// A class that describes a FSM state that the Helper can be in.
+/// A State is described by 1) the Action the Helper does while in this state,
+/// 2) the animation to play while in this state, and 3) a finite set of transitions that
+/// can be made from this state. Each transition is described by a Decision that triggers
+/// the transition when it evaluates to true, and the new State that the Helper will transition to.
+/// </summary>
+
 [CreateAssetMenu(menuName = "FSM State", order = 52)]
 public class State : ScriptableObject
 {
     // The action to take while in this state.
     [SerializeField] private Action action;
-    [SerializeField] private int animationState;
+
+    // This state's animation.
+    [System.Serializable]
+    public enum animationState { idle, running, attack, stop };
+    [SerializeField] private animationState animState;
 
     // A list of decisions I can make while in this state,
     // and corresponding transitions that I can do from this state.
@@ -19,10 +32,11 @@ public class State : ScriptableObject
     }
     [SerializeField] private Transition[] transitions;
 
+
+
     public void Enter(HelperFSM machine)
     {
-        Debug.Log("changing animation");
-        machine.Anim.SetInteger("helperState", animationState);
+        machine.Anim.SetInteger("helperState", (int)animState);
     }
 
     public void Execute(HelperFSM machine)
@@ -42,6 +56,7 @@ public class State : ScriptableObject
             if (canTransition)
             {
                 machine.TransitionState(transitions[i].newState);
+                break;
             }
         }
     }
