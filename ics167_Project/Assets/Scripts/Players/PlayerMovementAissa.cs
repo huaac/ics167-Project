@@ -16,6 +16,12 @@ public class PlayerMovementAissa : MonoBehaviour
     private Animator m_anim;
     private PlayerState m_playerState;
 
+    // Restart and Menu Settings by Mindy Jun
+    [Header("Restart and Menu Settings")]
+    [SerializeField] private float levelRestartDelay;
+    public GameObject optionsMenu;
+    public GameObject dimImage;
+
     [Header("Input Settings")]
     [SerializeField] private string HorizontalAxis;
     [SerializeField] private string JumpButton;
@@ -24,6 +30,7 @@ public class PlayerMovementAissa : MonoBehaviour
     [SerializeField] private float m_moveSpeed = 5f;
     [SerializeField] private float m_jumpSpeed = 7f;
     [SerializeField] private LayerMask jumpableGround;
+
 
     private enum AnimationState { idle, running, jumping, falling };
 
@@ -79,6 +86,18 @@ public class PlayerMovementAissa : MonoBehaviour
                 m_rb.velocity = new Vector2(m_rb.velocity.x * wallNormal.x, m_jumpSpeed);
                 canWallJump = false;
             }
+        }
+
+        // Restart and Escape functionality by Mindy Jun
+        if (Input.GetButtonDown("Restart")) 
+        {
+            ResetScene();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
+            dimImage.gameObject.SetActive(!dimImage.gameObject.activeSelf);
         }
 
         UpdateAnimation();
@@ -139,7 +158,7 @@ public class PlayerMovementAissa : MonoBehaviour
 
     // by Mindy Jun
     // If a player collides with the finishing hole, the next level is loaded.
-    //
+    // The next level is also unlocked in the level picking screen.
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Finish")
@@ -161,4 +180,16 @@ public class PlayerMovementAissa : MonoBehaviour
         DetectWallJump(normal);
     }
 
+    // Resets current level
+    public void ResetScene()
+    {
+        StartCoroutine(ResetAfterDelay(levelRestartDelay));
+    }
+
+    private IEnumerator ResetAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
 }

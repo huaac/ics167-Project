@@ -3245,6 +3245,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3703940966269962947, guid: 579aa2bf6f5104d2f836d3ffc03b2a31,
+        type: 3}
+      propertyPath: dimImage
+      value: 
+      objectReference: {fileID: 2029449914}
+    - target: {fileID: 3703940966269962947, guid: 579aa2bf6f5104d2f836d3ffc03b2a31,
+        type: 3}
+      propertyPath: optionsMenu
+      value: 
+      objectReference: {fileID: 1533628261}
     - target: {fileID: 3703940966269962957, guid: 579aa2bf6f5104d2f836d3ffc03b2a31,
         type: 3}
       propertyPath: m_Name
@@ -5035,12 +5045,12 @@ PrefabInstance:
     - target: {fileID: 4038192634204809750, guid: 571fe69e528624025aa0f4ed8b7ad7dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 159.4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4038192634204809750, guid: 571fe69e528624025aa0f4ed8b7ad7dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: -0.849776
       objectReference: {fileID: 0}
     - target: {fileID: 4038192634204809750, guid: 571fe69e528624025aa0f4ed8b7ad7dd,
         type: 3}
