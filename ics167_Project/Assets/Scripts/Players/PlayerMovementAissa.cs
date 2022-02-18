@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // by Aissa Akiyama
 // Implements player movement by using Input axes that can be set in the Input Manager for Project Settings.
 // Also sets animation for the player's Animator to use depending on player's velocity.
-// There are booleans that can be set from PowerUp scripts to enable/disable certain types of movement.
 
 public class PlayerMovementAissa : MonoBehaviour
 {
@@ -15,6 +13,8 @@ public class PlayerMovementAissa : MonoBehaviour
     private SpriteRenderer m_sprite;
     private Animator m_anim;
     private PlayerState m_playerState;
+
+    [SerializeField] private GameEvent OnFinishReached;
 
     [Header("Input Settings")]
     [SerializeField] private string HorizontalAxis;
@@ -34,10 +34,6 @@ public class PlayerMovementAissa : MonoBehaviour
     private bool canWallJump;
     private Vector2 wallNormal;
 
-    // bool's to enable/disable power ups
-    /*private bool doubleJumpEnabled;
-    private bool speedEnabled;
-    private bool wallJumpEnabled;*/
 
     private void Awake()
     {
@@ -53,8 +49,6 @@ public class PlayerMovementAissa : MonoBehaviour
         // horizontal movement
         movement_x = Input.GetAxisRaw(HorizontalAxis);
         m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
-        //if (m_playerState.HasSpeed)
-        //    m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
 
         // jump
         if (Input.GetButtonDown(JumpButton))
@@ -137,21 +131,11 @@ public class PlayerMovementAissa : MonoBehaviour
         }
     }
 
-    // by Mindy Jun
-    // If a player collides with the finishing hole, the next level is loaded.
-    // The next level is also unlocked in the level picking screen.
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Finish")
         {
-            GameManager.Instance.completedLevels += 1;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
-            int currentLevel = SceneManager.GetActiveScene().buildIndex;
-            if (currentLevel >= PlayerPrefs.GetInt("levelsUnlocked")) 
-            {
-                PlayerPrefs.SetInt("levelsUnlocked", currentLevel);
-            }
+            OnFinishReached.Raise();
         }
     }
 

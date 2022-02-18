@@ -11,22 +11,27 @@ using UnityEngine.AI;
 public class HelperFSM : MonoBehaviour
 {
     [SerializeField] private State initialState;
+    [SerializeField] private int helperAttack;
     private State currentState;
 
+    [Header("Movement Settings")]
     [SerializeField] private Transform leadToFollow;
     [SerializeField] private float offset = 100f;
+    [SerializeField] private Collider2D player1Collider;
+    [SerializeField] private Collider2D player2Collider;
     private Vector2 homePosition;
     private Vector2 previousPosition;
     private float movement_x;
 
+    [Header("Enemy Search Settings")]
     [SerializeField] private GameObject searchRange;
     [SerializeField] private BoxCollider2D hitbox;
-    [SerializeField] private int helperAttack;
     private EnemyDetector enemyDetector;
     private NavMeshAgent agent;
     private Enemy enemy;
 
     private Rigidbody2D rb;
+    private BoxCollider2D selfCollider;
     private SpriteRenderer sprite;
     private Animator anim;
 
@@ -40,8 +45,15 @@ public class HelperFSM : MonoBehaviour
         enemyDetector = searchRange.GetComponent<EnemyDetector>();
 
         rb = GetComponent<Rigidbody2D>();
+        selfCollider = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        Physics2D.IgnoreCollision(selfCollider, player1Collider);
+        Physics2D.IgnoreCollision(selfCollider, player2Collider);
     }
 
     private void Update()

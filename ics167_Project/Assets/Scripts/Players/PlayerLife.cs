@@ -14,7 +14,6 @@ using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private GameEvent OnPlayerDied;
-    [SerializeField] private float levelRestartDelay;
 
     private Rigidbody2D m_rb;
     private BoxCollider2D m_collider;

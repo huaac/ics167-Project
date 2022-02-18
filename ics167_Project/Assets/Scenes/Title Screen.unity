@@ -2435,3 +2435,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelRestartDelay: 0
+  restartCount: {fileID: 11400000, guid: 44fbd8f916f704d93a50cd24ea7f367f, type: 2}

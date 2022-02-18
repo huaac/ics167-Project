@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 3703940966269962947}
   - component: {fileID: 2446875284298009283}
   - component: {fileID: 2446875284298009280}
+  - component: {fileID: 1172566386}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -443,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac44d0d02b07d4487ab4f1a324c137e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnFinishReached: {fileID: 11400000, guid: f79cf4c6dac5b471ebaf6b1fea2e94c2, type: 2}
   HorizontalAxis: Horizontal2
   JumpButton: Jump2
   m_moveSpeed: 5
@@ -476,3 +478,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 2
+--- !u!114 &1172566386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703940966269962957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d141cd23c1d34558a0d2ec8a3453357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: a43427908445043b1bbbec830f7e4f78, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2446875284298009283}
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
