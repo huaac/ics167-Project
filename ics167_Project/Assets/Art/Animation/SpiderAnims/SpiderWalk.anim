@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpiderIdle
+  m_Name: SpiderWalk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,10 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -7895818145541533372, guid: fbc05ce73341bd74d89f8b1aedf4ea34,
+      value: {fileID: -2544105567317597189, guid: 81c023030a383aa4e8baed4783581c82,
+        type: 3}
+    - time: 0.16666667
+      value: {fileID: -5028499988708411735, guid: 81c023030a383aa4e8baed4783581c82,
         type: 3}
     - time: 0.33333334
-      value: {fileID: 4900158469661658264, guid: fbc05ce73341bd74d89f8b1aedf4ea34,
+      value: {fileID: -6545219573610371892, guid: 81c023030a383aa4e8baed4783581c82,
+        type: 3}
+    - time: 0.5
+      value: {fileID: -8783276914086060250, guid: 81c023030a383aa4e8baed4783581c82,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -44,14 +50,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -7895818145541533372, guid: fbc05ce73341bd74d89f8b1aedf4ea34, type: 3}
-    - {fileID: 4900158469661658264, guid: fbc05ce73341bd74d89f8b1aedf4ea34, type: 3}
+    - {fileID: -2544105567317597189, guid: 81c023030a383aa4e8baed4783581c82, type: 3}
+    - {fileID: -5028499988708411735, guid: 81c023030a383aa4e8baed4783581c82, type: 3}
+    - {fileID: -6545219573610371892, guid: 81c023030a383aa4e8baed4783581c82, type: 3}
+    - {fileID: -8783276914086060250, guid: 81c023030a383aa4e8baed4783581c82, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
