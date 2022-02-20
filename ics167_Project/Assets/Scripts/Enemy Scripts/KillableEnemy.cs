@@ -22,13 +22,20 @@ public abstract class KillableEnemy : Enemy, IDamageable
         health_bar.SetMaxHealth(max_health);
     }
 
+    // added by Aissa Akiyama
+    void Update()
+    {
+        if (CurrentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // method for taking in damage
     public void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
         ChangeHealthBar();
-        if (CurrentHealth <= 0) {Destroy(gameObject); }
     }
 
     // shows current health to show on the health bar
@@ -37,11 +44,8 @@ public abstract class KillableEnemy : Enemy, IDamageable
         health_bar.SetHealth(CurrentHealth);
     }
 
-    //public abstract void OnCollisionEnter2D(Collision2D col);
+    public abstract void OnCollisionEnter2D(Collision2D col);
 
-    public abstract void Attack();
-
-    // added by Aissa Akiyama
     // A killable enemy will take damage when the Helper attacks it, just like
     // when a player with the protein powerup attacks it.
     protected override void OnHelperAttack(int damage)
