@@ -8,6 +8,7 @@ public class SpiderMove : BaseState
 {
     private SpiderFSM sm;
     private bool turned;
+    private bool powered_up;
 
     public SpiderMove(SpiderFSM stateMachine) : base("Move", stateMachine) { 
         sm = stateMachine;
@@ -24,13 +25,12 @@ public class SpiderMove : BaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        if(turned)
+        if(SeePrey()) 
         {
-            stateMachine.ChangeState(sm.idle_state);
+            sm.speed = -10f;
+            if(powered_up){FlipSprite();}
         }
-        // _horizontalInput = Input.GetAxis("Horizontal");
-        // if (Mathf.Abs(_horizontalInput) > Mathf.Epsilon)
-        //     stateMachine.ChangeState(_sm.movingState);
+        if(turned) {stateMachine.ChangeState(sm.idle_state);}
     }
 
     public override void UpdatePhysics()
@@ -48,21 +48,56 @@ public class SpiderMove : BaseState
             // should this be changed so that it doesnt turn until it moves again?
 
             //instance.StartCoroutine(WaitTime());
-            if(sm.facing_right)
-            {
-                //m_sprite.flipX = true;
-                sm.transform.eulerAngles = new Vector3(0,-180,0);
-                sm.facing_right = false;
-            }
-            else
-            {
-                //m_sprite.flipX = false;
-                sm.transform.eulerAngles = new Vector3(0,0,0);
-                sm.facing_right = true;
-            }
+            FlipSprite();
+            // if(sm.facing_right)
+            // {
+            //     //m_sprite.flipX = true;
+            //     sm.transform.eulerAngles = new Vector3(0,-180,0);
+            //     sm.facing_right = false;
+            // }
+            // else
+            // {
+            //     //m_sprite.flipX = false;
+            //     sm.transform.eulerAngles = new Vector3(0,0,0);
+            //     sm.facing_right = true;
+            // }
+
             turned = true;
         }
         sm.transform.Translate(Vector2.right * sm.speed * Time.deltaTime);
+    }
+
+    private bool SeePrey()
+    {
+        RaycastHit2D detected = Physics2D.Raycast(sm.detect_ground.position, sm.transform.TransformDirection(Vector2.left),5,LayerMask.GetMask("Player"));
+        if(detected.collider)
+        {
+            PlayerState FoundObject = GameObject.Find(detected.collider.gameObject.name).GetComponent<PlayerState>();
+            powered_up = FoundObject.HasProtein;
+            //if(detected.collider.gameObject.HasProtein) {powered_up = true;}
+            return true;
+        }
+        else
+        {
+            powered_up = false;
+            return false;
+        }
+    }
+
+    private void FlipSprite()
+    {
+        if(sm.facing_right)
+        {
+            //m_sprite.flipX = true;
+            sm.transform.eulerAngles = new Vector3(0,-180,0);
+            sm.facing_right = false;
+        }
+        else
+        {
+            //m_sprite.flipX = false;
+            sm.transform.eulerAngles = new Vector3(0,0,0);
+            sm.facing_right = true;
+        }
     }
 
     public override void Exit()

@@ -10,6 +10,10 @@ public class SpiderFSM : StateMachine
     public SpiderChase chase_state;
     [HideInInspector]
     public SpiderIdle idle_state;
+    [HideInInspector]
+    public SpiderAttack attack_state;
+    [SerializeField]
+    private BoxCollider2D hitbox;
 
     //private Rigidbody2D rb;
     public float speed;
@@ -25,6 +29,7 @@ public class SpiderFSM : StateMachine
         move_state = new SpiderMove(this);
         chase_state = new SpiderChase(this);
         idle_state = new SpiderIdle(this);
+        attack_state = new SpiderAttack(this);
         speed = -4f;
         facing_right = true;
         //transform = GetComponents<Transform>();
