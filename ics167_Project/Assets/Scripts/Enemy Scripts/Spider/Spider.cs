@@ -46,12 +46,13 @@ public class Spider : KillableEnemy
             //animator.SetBool("isDetected", true);
             //animator.SetFloat("speed", 1);
         }
-    }
-
-    void FixedUpdate()
-    {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
+
+    // void FixedUpdate()
+    // {
+    //     transform.Translate(Vector2.right * speed * Time.deltaTime);
+    // }
 
     public override void OnCollisionEnter2D(Collision2D col)
     {
