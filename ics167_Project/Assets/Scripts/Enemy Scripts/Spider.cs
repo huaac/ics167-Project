@@ -8,50 +8,7 @@ using UnityEngine;
 
 public class Spider : KillableEnemy
 {
-    public Animator animator;
-    //private SpriteRenderer m_sprite;
-
-    public Transform detect_ground;
-    public float speed;
-    private bool facing_right;
-    //public float distance;
-
-    private void Awake()
-    {
-        speed = -4f;
-        facing_right = true;
-        animator.SetFloat("speed", 1);
-        //m_sprite = GetComponent<SpriteRenderer>();
-    }
-
-    void Update()
-    {
-        RaycastHit2D groundInfo = Physics2D.Raycast(detect_ground.position, Vector2.down, LayerMask.GetMask("jumpableGround"));
-        if(groundInfo.collider == false)
-        {
-            if(facing_right)
-            {
-                //m_sprite.flipX = true;
-                transform.eulerAngles = new Vector3(0,-180,0);
-                facing_right = false;
-                //speed = -speed;
-            }
-            else
-            {
-                //m_sprite.flipX = false;
-                transform.eulerAngles = new Vector3(0,0,0);
-                facing_right = true;
-                //speed = -speed;
-            }
-            //animator.SetBool("isDetected", true);
-            //animator.SetFloat("speed", 1);
-        }
-    }
-
-    void FixedUpdate()
-    {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
-    }
+    //Animator myAnimator; (will be animated in the future)
 
     public override void OnCollisionEnter2D(Collision2D col)
     {
