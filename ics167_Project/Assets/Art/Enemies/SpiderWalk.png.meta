@@ -114,12 +114,12 @@ TextureImporter:
       name: SpiderWalk_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 40
-        width: 32
-        height: 24
+        width: 22
+        height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,12 +135,12 @@ TextureImporter:
       name: SpiderWalk_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 37
         y: 40
-        width: 32
-        height: 24
+        width: 22
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: SpiderWalk_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 8
-        width: 32
-        height: 24
+        width: 22
+        height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,12 +177,12 @@ TextureImporter:
       name: SpiderWalk_3
       rect:
         serializedVersion: 2
-        x: 32
+        x: 38
         y: 8
-        width: 32
-        height: 24
+        width: 23
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class Spider : KillableEnemy
 {
+<<<<<<< HEAD
+<<<<<<< HEAD
     public Animator animator;
     //private SpriteRenderer m_sprite;
 
@@ -72,6 +74,12 @@ public class Spider : KillableEnemy
         speed = -4f;
         animator.SetFloat("speed", 1);
     }
+=======
+    //Animator myAnimator; (will be animated in the future)
+>>>>>>> parent of 0f773a4 (Added enemy patrolling movement without waiting at ground edge)
+=======
+    //Animator myAnimator; (will be animated in the future)
+>>>>>>> parent of 0f773a4 (Added enemy patrolling movement without waiting at ground edge)
 
     private bool SeePrey()
     {
