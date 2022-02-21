@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: StopState
   m_EditorClassIdentifier: 
   action: {fileID: 11400000, guid: e402b0cb3379b460b8a226c581d156a2, type: 2}
+  exitAction: {fileID: 11400000, guid: 87a8884e13a154c959f405204ff987c8, type: 2}
   animState: 3
   transitions:
   - decision: {fileID: 11400000, guid: 6f93f97afcbe24e6c98e3eafbdcbba80, type: 2}

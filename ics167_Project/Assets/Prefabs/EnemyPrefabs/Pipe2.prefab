@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6182191330325990955}
   - component: {fileID: 6182191330325990952}
   - component: {fileID: 6182191330325990953}
-  - component: {fileID: 6182191330325990954}
   m_Layer: 8
   m_Name: Steam Puffs
   m_TagString: Untagged
@@ -4755,18 +4754,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &6182191330325990954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6182191330325990958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9214efe2ea23ff42b814e9dd09038ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6182191330459352512
 GameObject:
   m_ObjectHideFlags: 0
@@ -4778,9 +4765,10 @@ GameObject:
   - component: {fileID: 6182191330459352515}
   - component: {fileID: 6182191330459352541}
   - component: {fileID: 6182191330459352514}
+  - component: {fileID: 1852626016}
   m_Layer: 8
   m_Name: Pipe2
-  m_TagString: EditorOnly
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4792,7 +4780,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6182191330459352512}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.96, y: 1.41, z: 0}
   m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children:
@@ -4876,3 +4864,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24983072, y: 0.22252008}
   m_EdgeRadius: 0
+--- !u!114 &1852626016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182191330459352512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9214efe2ea23ff42b814e9dd09038ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 6182191330325990952}

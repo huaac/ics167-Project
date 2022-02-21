@@ -16,6 +16,8 @@ public class State : ScriptableObject
 {
     // The action to take while in this state.
     [SerializeField] private Action action;
+    // The action to take when leaving this state.
+    [SerializeField] private Action exitAction;
 
     // This state's animation.
     [System.Serializable]
@@ -61,5 +63,8 @@ public class State : ScriptableObject
         }
     }
 
-    public void Exit(HelperFSM machine) { }
+    public void Exit(HelperFSM machine)
+    {
+        exitAction.Act(machine);
+    }
 }

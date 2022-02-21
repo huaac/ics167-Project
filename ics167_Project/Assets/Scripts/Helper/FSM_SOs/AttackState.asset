@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AttackState
   m_EditorClassIdentifier: 
   action: {fileID: 11400000, guid: c220e493a55ec4fe488e476a76104d65, type: 2}
+  exitAction: {fileID: 11400000, guid: c220e493a55ec4fe488e476a76104d65, type: 2}
   animState: 2
   transitions:
   - decision: {fileID: 11400000, guid: c829c4d1286954b41a059888e52518d7, type: 2}
