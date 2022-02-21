@@ -27,6 +27,7 @@ public class SceneScript : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         IncrementRestartCount();
+        Time.timeScale = 1f;
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
