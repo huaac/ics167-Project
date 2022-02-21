@@ -7,6 +7,13 @@ using UnityEngine;
 
 public class Steam : UnkillableEnemy
 {
+
+    private ParticleSystem particles;
+    void Start()
+    {
+        particles = gameObject.GetComponent<ParticleSystem>();
+    }
+    
     //if particle collides with player, player dies
     void OnParticleCollision(GameObject other)
     {
@@ -16,5 +23,15 @@ public class Steam : UnkillableEnemy
             other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             CallResetScene();
         }
+    }
+
+    public override void Freeze()
+    {
+        particles.Pause();
+    }
+
+    public override void UnFreeze()
+    {
+        particles.Play();
     }
 }

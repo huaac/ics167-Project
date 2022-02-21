@@ -10,7 +10,7 @@ public class RatTrap : KillableEnemy
 {
     Animator myAnimator;
 
-    public override void OnCollisionEnter2D(Collision2D col)
+    public void OnCollisionEnter2D(Collision2D col)
     {
         // if player toucches the rat trap, rat trap animation and they fall down, then reset scene
         if(col.gameObject.tag == "Player")

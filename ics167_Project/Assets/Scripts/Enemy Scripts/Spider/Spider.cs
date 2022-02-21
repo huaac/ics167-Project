@@ -46,7 +46,7 @@ public class Spider : KillableEnemy
             //animator.SetBool("isDetected", true);
             //animator.SetFloat("speed", 1);
         }
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        //transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 
     // void FixedUpdate()
@@ -54,17 +54,17 @@ public class Spider : KillableEnemy
     //     transform.Translate(Vector2.right * speed * Time.deltaTime);
     // }
 
-    public override void OnCollisionEnter2D(Collision2D col)
-    {
-        // if player touches spider, player falls down and reset scene
-        /*
-        if(col.gameObject.tag == "Player")
-        {
-            col.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            TakeDamage(50);
-            CallResetScene();
-        }
-        */
-    }
+    // public void OnCollisionEnter2D(Collision2D col)
+    // {
+    //     // if player touches spider, player falls down and reset scene
+    //     /*
+    //     if(col.gameObject.tag == "Player")
+    //     {
+    //         col.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+    //         TakeDamage(50);
+    //         CallResetScene();
+    //     }
+    //     */
+    // }
 
 }

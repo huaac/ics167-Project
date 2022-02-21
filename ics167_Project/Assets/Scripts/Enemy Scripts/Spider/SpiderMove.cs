@@ -41,7 +41,7 @@ public class SpiderMove : BaseState
 
     private void Move()
     {
-        RaycastHit2D groundInfo = Physics2D.Raycast(sm.detect_ground.position, Vector2.down, LayerMask.GetMask("jumpableGround"));
+        RaycastHit2D groundInfo = Physics2D.Raycast(sm.detect_ground.position, Vector2.down,1, LayerMask.GetMask("jumpableGround"));
         if(groundInfo.collider == false)
         {
             // rn the spider immediately turns around when it reaches an edge.

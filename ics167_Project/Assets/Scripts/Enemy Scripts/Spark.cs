@@ -20,6 +20,8 @@ public class Spark : UnkillableEnemy
 
     private bool coroutineAllowed;  // stop running another coroutine if already have 1
 
+    IEnumerator loop;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class Spark : UnkillableEnemy
         tParam = 0f;
         speedModifier = 0.5f;
         coroutineAllowed = true;
+        loop = GoByTheRoute(routeToGo);
     }
 
     // Update is called once per frame
@@ -34,7 +37,9 @@ public class Spark : UnkillableEnemy
     {
         if (coroutineAllowed)
         {
-            StartCoroutine(GoByTheRoute(routeToGo));
+            loop = GoByTheRoute(routeToGo);
+            //StartCoroutine(GoByTheRoute(routeToGo));
+            StartCoroutine(loop);
         }
     }
 
@@ -79,5 +84,14 @@ public class Spark : UnkillableEnemy
             CallResetScene();
         }
         
+    }
+
+    public override void Freeze()
+    {
+        StopCoroutine(loop);
+    }
+    public override void UnFreeze()
+    {
+        StartCoroutine(loop);
     }
 }
