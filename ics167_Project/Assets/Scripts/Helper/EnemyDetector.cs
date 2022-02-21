@@ -16,6 +16,7 @@ public class EnemyDetector : MonoBehaviour
     {
         if ((collision.gameObject.tag == "Enemy") && (enemy == null))
         {
+            Debug.Log("Detected!");
             enemy = collision.gameObject;
         }
     }

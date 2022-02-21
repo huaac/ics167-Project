@@ -30,6 +30,7 @@ public class SpiderFSM : StateMachine
         chase_state = new SpiderChase(this);
         idle_state = new SpiderIdle(this);
         attack_state = new SpiderAttack(this);
+        animator = GetComponent<Animator>();
         speed = -4f;
         facing_right = true;
         //transform = GetComponents<Transform>();

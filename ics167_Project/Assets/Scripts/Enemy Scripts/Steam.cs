@@ -7,11 +7,12 @@ using UnityEngine;
 
 public class Steam : UnkillableEnemy
 {
-
+    [SerializeField]
     private ParticleSystem particles;
+    
     void Start()
     {
-        particles = gameObject.GetComponent<ParticleSystem>();
+        //particles = gameObject.GetComponent<ParticleSystem>();
     }
     
     //if particle collides with player, player dies
