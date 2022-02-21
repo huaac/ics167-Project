@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// by Aissa Akiyama
+
 [CreateAssetMenu(menuName = "FSM/Actions/Attack", order = 53)]
 public class AttackAction : Action
 {

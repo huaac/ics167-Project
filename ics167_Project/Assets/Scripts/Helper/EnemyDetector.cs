@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// by Aissa Akiyama
+/// This script allows the detection of an enemy when attached to a GameObject.
+/// Best used with hitboxes.
+/// </summary>
+
 public class EnemyDetector : MonoBehaviour
 {
-    //[SerializeField] private Transform searcher;
     private GameObject enemy;
-
-    private void Update()
-    {
-        //gameObject.transform.position = searcher.transform.position;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// by Aissa Akiyama
+
 [CreateAssetMenu(menuName = "FSM/Decisions/Out of Range", order = 53)]
 public class EnemyOutOfRangeDecision : Decision
 {

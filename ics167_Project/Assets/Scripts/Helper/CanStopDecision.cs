@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// by Aissa Akiyama
+
 [CreateAssetMenu(menuName = "FSM/Decisions/Can Stop", order = 53)]
 public class CanStopDecision : Decision
 {
