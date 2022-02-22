@@ -16,7 +16,7 @@ public abstract class KillableEnemy : Enemy, IDamageable
     public HealthBar health_bar;
 
     // sets max health to current health
-    void Start()
+    virtual protected void Awake()
     {
         CurrentHealth = max_health;
         health_bar.SetMaxHealth(max_health);
@@ -24,7 +24,7 @@ public abstract class KillableEnemy : Enemy, IDamageable
 
     // added by Aissa Akiyama
     // method for taking in damage
-    public void TakeDamage(int damage)
+    virtual public void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
         ChangeHealthBar();
@@ -36,7 +36,7 @@ public abstract class KillableEnemy : Enemy, IDamageable
     }
 
     // shows current health to show on the health bar
-    void ChangeHealthBar()
+    virtual protected void ChangeHealthBar()
     {
         health_bar.SetHealth(CurrentHealth);
     }

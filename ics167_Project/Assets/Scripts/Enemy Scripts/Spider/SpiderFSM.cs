@@ -33,8 +33,13 @@ public class SpiderFSM : StateMachine
         animator = GetComponent<Animator>();
         speed = -4f;
         facing_right = true;
+        base.Awake();
         //transform = GetComponents<Transform>();
     }
+
+    //override protected void Start() {base.Start();}
+    override public void TakeDamage(int damage) {base.TakeDamage(damage);}
+    override protected void ChangeHealthBar(){base.ChangeHealthBar();}
 
     protected override BaseState GetInitialState()
     {
