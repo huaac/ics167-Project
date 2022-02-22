@@ -58,6 +58,7 @@ public class SceneScript : MonoBehaviour
     public void GoToMenu() 
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
 
     private void IncrementRestartCount()
