@@ -48,12 +48,15 @@ public class PlayerLife : MonoBehaviour
     // play death animation, disable movement, raise OnPlayerDied event
     public void Die()
     {
-        m_anim.SetTrigger("death");
-        m_rb.bodyType = RigidbodyType2D.Static;
-        m_collider.enabled = false;
+        if (!m_playerState.IsDead)
+        {
+            m_anim.SetTrigger("death");
+            m_rb.bodyType = RigidbodyType2D.Static;
+            m_collider.enabled = false;
 
-        m_playerState.SetToDead();
-        OnPlayerDied.Raise();
+            m_playerState.SetToDead();
+            OnPlayerDied.Raise();
+        }
     }
 
     private void HitDamageable(GameObject damageable)

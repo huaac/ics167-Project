@@ -16,11 +16,12 @@ public class Spider : KillableEnemy
     private bool facing_right;
     //public float distance;
 
-    private void Awake()
+    protected override void Awake()
     {
         speed = -4f;
         facing_right = true;
         animator.SetFloat("speed", 1);
+        base.Awake();
         //m_sprite = GetComponent<SpriteRenderer>();
     }
 

@@ -24,7 +24,7 @@ public class SpiderFSM : StateMachine
     
     //public Transform transform;
 
-    private void Awake()
+    protected override void Awake()
     {
         move_state = new SpiderMove(this);
         chase_state = new SpiderChase(this);
