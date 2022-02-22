@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d73d310e082364babf6f6ed58daf0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_bar: {fileID: 0}
+  health_bar: {fileID: 2025990647}
   move_state: {fileID: 0}
   chase_state: {fileID: 0}
   idle_state: {fileID: 0}
