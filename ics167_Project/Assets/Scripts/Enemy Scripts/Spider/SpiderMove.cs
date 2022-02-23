@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+// added in / edited by Alice Hua
 [CreateAssetMenu(menuName = "SpiderFSM/Actions/Move", order = 53)]
 public class SpiderMove : BaseState
 {
@@ -17,11 +17,13 @@ public class SpiderMove : BaseState
     public override void Enter()
     {
         base.Enter();
-        sm.speed = -4f;
-        turned = false;
-        sm.animator.SetFloat("speed", 1);
+        sm.speed = -4f;     // sets walking speed
+        turned = false;     //checks if the sprite flipped
+        sm.animator.SetFloat("speed", 1);   // sets animation to walking
     }
 
+    // if spider sees players, then increase speed to simulate charging, else if
+    // it reaches an edge, it turns and pauses for a bit
     public override void UpdateLogic()
     {
         base.UpdateLogic();
@@ -39,34 +41,19 @@ public class SpiderMove : BaseState
         Move();
     }
 
+    // simulates spider walking and turns if it reaches an edge on platform
     private void Move()
     {
         RaycastHit2D groundInfo = Physics2D.Raycast(sm.detect_ground.position, Vector2.down,1, LayerMask.GetMask("jumpableGround"));
         if(groundInfo.collider == false)
         {
-            // rn the spider immediately turns around when it reaches an edge.
-            // should this be changed so that it doesnt turn until it moves again?
-
-            //instance.StartCoroutine(WaitTime());
             FlipSprite();
-            // if(sm.facing_right)
-            // {
-            //     //m_sprite.flipX = true;
-            //     sm.transform.eulerAngles = new Vector3(0,-180,0);
-            //     sm.facing_right = false;
-            // }
-            // else
-            // {
-            //     //m_sprite.flipX = false;
-            //     sm.transform.eulerAngles = new Vector3(0,0,0);
-            //     sm.facing_right = true;
-            // }
-
             turned = true;
         }
         sm.transform.Translate(Vector2.right * sm.speed * Time.deltaTime);
     }
 
+    // detects if players are in view of the spider
     private bool SeePrey()
     {
         RaycastHit2D detected = Physics2D.Raycast(sm.detect_ground.position, sm.transform.TransformDirection(Vector2.left),5,LayerMask.GetMask("Player"));
@@ -74,7 +61,6 @@ public class SpiderMove : BaseState
         {
             PlayerState FoundObject = GameObject.Find(detected.collider.gameObject.name).GetComponent<PlayerState>();
             powered_up = FoundObject.HasProtein;
-            //if(detected.collider.gameObject.HasProtein) {powered_up = true;}
             return true;
         }
         else
@@ -88,18 +74,15 @@ public class SpiderMove : BaseState
     {
         if(sm.facing_right)
         {
-            //m_sprite.flipX = true;
             sm.transform.eulerAngles = new Vector3(0,-180,0);
             sm.facing_right = false;
         }
         else
         {
-            //m_sprite.flipX = false;
             sm.transform.eulerAngles = new Vector3(0,0,0);
             sm.facing_right = true;
         }
     }
 
-    public override void Exit()
-    {base.Exit();}
+    public override void Exit() {base.Exit();}
 }

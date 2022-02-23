@@ -86,10 +86,12 @@ public class Spark : UnkillableEnemy
         
     }
 
+    // can be called by helper to stop the spark
     public override void Freeze()
     {
         StopCoroutine(loop);
     }
+    // can be called by helper to restart the spark
     public override void UnFreeze()
     {
         StartCoroutine(loop);

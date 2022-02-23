@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// added in / edited by Alice Hua
+// Taken from https://youtu.be/-VkezxxjsSE
 public class SpiderFSM : StateMachine
 {
     [HideInInspector]
@@ -34,10 +36,9 @@ public class SpiderFSM : StateMachine
         speed = -4f;
         facing_right = true;
         base.Awake();
-        //transform = GetComponents<Transform>();
     }
 
-    //override protected void Start() {base.Start();}
+    // must override from KillableEnemy class in order for health bar to work
     override public void TakeDamage(int damage) {base.TakeDamage(damage);}
     override protected void ChangeHealthBar(){base.ChangeHealthBar();}
 
