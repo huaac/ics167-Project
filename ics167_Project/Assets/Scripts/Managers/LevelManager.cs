@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-
 //Written by Mindy Jun
 
 public sealed class LevelManager : MonoBehaviour
@@ -42,11 +40,4 @@ public sealed class LevelManager : MonoBehaviour
             buttons[i].interactable = true;
         }
     }
-
-    //check to make sure the levelIndex and Scene numbers line up properly!
-    public void LoadLevel(int levelIndex) 
-    {
-        SceneManager.LoadScene(levelIndex + 1);
-    }
-    
 }
