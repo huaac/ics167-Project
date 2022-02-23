@@ -51,6 +51,7 @@ public class SceneScript : MonoBehaviour
     {
         ResetRestartCount();
         Debug.Log("QUIT!");
+        PlayerPrefs.SetInt("levelsUnlocked", 1);
         Application.Quit();
     }
 
