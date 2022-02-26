@@ -6,7 +6,7 @@ using UnityEngine;
 
 public abstract class UnkillableEnemy : Enemy
 {
-    //Nothing rn but will add when we put in more functions
+    //Freeze and Unfreeze method that the helper can call upon to aid the player
     public abstract void Freeze();
     public abstract void UnFreeze();
 

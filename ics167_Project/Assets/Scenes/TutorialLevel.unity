@@ -576,7 +576,6 @@ GameObject:
   m_Component:
   - component: {fileID: 302783871}
   - component: {fileID: 302783870}
-  - component: {fileID: 302783869}
   m_Layer: 0
   m_Name: Kill Player
   m_TagString: Enemy
@@ -584,22 +583,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &302783869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302783868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cb8570c25d6ccf4eb1f949b4c8505c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health_bar: {fileID: 1224846768}
-  animator: {fileID: 0}
-  detect_ground: {fileID: 0}
-  speed: 0
 --- !u!61 &302783870
 BoxCollider2D:
   m_ObjectHideFlags: 0
