@@ -552,8 +552,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574123866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.067, y: -2.38, z: 0}
-  m_LocalScale: {x: 0.51737666, y: 1, z: 1}
+  m_LocalPosition: {x: 10.215, y: -2.38, z: 0}
+  m_LocalScale: {x: 1.1468934, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health_bar: {fileID: 2025990647}
   move_state: {fileID: 0}
-  chase_state: {fileID: 0}
+  alert_state: {fileID: 0}
   idle_state: {fileID: 0}
   attack_state: {fileID: 0}
   hitbox: {fileID: 1800735093}
@@ -1185,6 +1185,8 @@ MonoBehaviour:
   detect_ground: {fileID: 937832846}
   animator: {fileID: 1319520312}
   facing_right: 0
+  in_sight: 0
+  powered_up: 0
 --- !u!1 &1384412462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,7 +1470,7 @@ GameObject:
   - component: {fileID: 1800735093}
   m_Layer: 0
   m_Name: SpiderHitBox
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1480,13 +1482,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800735092}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.42386428, y: -0.22383869}
+  m_Offset: {x: 0.42386428, y: 0.13878033}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1497,7 +1499,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.41897303, y: 1.1428757}
+  m_Size: {x: 0.41897303, y: 1.0585456}
   m_EdgeRadius: 0
 --- !u!4 &1800735094
 Transform:
@@ -1507,7 +1509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800735092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.499655, y: -0.011136783, z: -19.54599}
+  m_LocalPosition: {x: -0.73, y: -0.127, z: -19.54599}
   m_LocalScale: {x: 0.34748396, y: 0.34748396, z: 0.34748396}
   m_Children: []
   m_Father: {fileID: 1319520314}

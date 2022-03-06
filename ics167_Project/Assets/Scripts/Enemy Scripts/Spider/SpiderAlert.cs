@@ -1,27 +1,30 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 // added in / edited by Alice Hua
-[CreateAssetMenu(menuName = "SpiderFSM/Actions/Idle", order = 53)]
-public class SpiderIdle : BaseState
+// will be implemented later
+[CreateAssetMenu(menuName = "SpiderFSM/Actions/Alert", order = 53)]
+public class SpiderAlert : BaseState
 {
     private SpiderFSM sm;
     private float startTime;    // start time of when to check if spider was idle enough
     private float waitFor;      // wait time
     private bool timerStart;    // 
 
-    public SpiderIdle(SpiderFSM stateMachine) : base("Idle", stateMachine) { 
+    public SpiderAlert(SpiderFSM stateMachine) : base("Alert", stateMachine) { 
         sm = stateMachine;
     }
 
-    public override void Enter()
+     public override void Enter()
     {
         base.Enter();
-        sm.speed = 0;                       // speed is 0 bc spider is idle
-        sm.animator.SetInteger("currentState", 0);   // sets the animation
+        sm.speed = 0;     // sets walking speed
+        sm.animator.SetInteger("currentState", 2);   // sets animation to walking
+        // sm.animator.SetTrigger("alert");
         timerStart = true;
-        waitFor = 2f;
+        waitFor = .5f;
         startTime = Time.time;
     }
 
@@ -29,14 +32,6 @@ public class SpiderIdle : BaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        if(sm.SeePrey())
-        {
-            if (!sm.in_sight)
-            {
-                stateMachine.ChangeState(sm.alert_state);
-            }
-            else {stateMachine.ChangeState(sm.move_state);}
-        }
         if((timerStart == true) && (Time.time - startTime > waitFor))
         {
             timerStart = false;
@@ -44,11 +39,14 @@ public class SpiderIdle : BaseState
 
         if(timerStart == false)
         {
+            // sm.animator.ResetTrigger("alert");
+            sm.in_sight = true;
             stateMachine.ChangeState(sm.move_state);
         }
     }
 
     public override void Exit()
     {base.Exit();}
+
 
 }
