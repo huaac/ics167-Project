@@ -139,9 +139,16 @@ public class PlayerMovementAissa : MonoBehaviour
         }
     }
 
+    // enable/disable wall jump based on contact w/ wall
     private void OnCollisionStay2D(Collision2D collision)
     {
         Vector2 normal = collision.GetContact(0).normal;
         DetectWallJump(normal);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Vector2 normal = new Vector2(0, 0);
+        canWallJump = false;
     }
 }
