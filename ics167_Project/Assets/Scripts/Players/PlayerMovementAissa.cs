@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;       //added by Alice
 
 // by Aissa Akiyama
 // Implements player movement by using Input axes that can be set in the Input Manager for Project Settings.
@@ -36,6 +37,7 @@ public class PlayerMovementAissa : MonoBehaviour
 
     private bool finished;
     private Transform waitPos;
+    private PhotonView view;            //added by Alice
 
 
     private void Awake()
@@ -45,7 +47,9 @@ public class PlayerMovementAissa : MonoBehaviour
         m_sprite = GetComponent<SpriteRenderer>();
         m_anim = GetComponent<Animator>();
         m_playerState = GetComponent<PlayerState>();
-    }
+
+        view = GetComponent<PhotonView>();      //added by Alice
+    }   
 
     private void Update()
     {
@@ -64,36 +68,68 @@ public class PlayerMovementAissa : MonoBehaviour
             return;
         }
 
-        // horizontal movement
-        movement_x = Input.GetAxisRaw(HorizontalAxis);
-        m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
-
-        // jump
-        if (Input.GetButtonDown(JumpButton))
+        if(view.IsMine)     //wraoped movement in isMine added by Alice
         {
-            if (IsGrounded())
+            // horizontal movement
+            movement_x = Input.GetAxisRaw(HorizontalAxis);
+            m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
+
+            // jump
+            if (Input.GetButtonDown(JumpButton))
             {
-                m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
-                isDoubleJumping = false;
-            }
-            else if (!IsGrounded() && m_playerState.HasDoubleJump)
-            {
-                if (!isDoubleJumping)
+                if (IsGrounded())
                 {
-                    // double jump only when player isn't already double jumping
                     m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
-                    isDoubleJumping = true;
+                    isDoubleJumping = false;
+                }
+                else if (!IsGrounded() && m_playerState.HasDoubleJump)
+                {
+                    if (!isDoubleJumping)
+                    {
+                        // double jump only when player isn't already double jumping
+                        m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
+                        isDoubleJumping = true;
+                    }
+                }
+                // wall jump
+                if (!IsGrounded() && m_playerState.HasWallJump && canWallJump)
+                {
+                    m_rb.velocity = new Vector2(m_rb.velocity.x * wallNormal.x, m_jumpSpeed);
+                    canWallJump = false;
                 }
             }
+            UpdateAnimation();
 
-            // wall jump
-            if (!IsGrounded() && m_playerState.HasWallJump && canWallJump)
-            {
-                m_rb.velocity = new Vector2(m_rb.velocity.x * wallNormal.x, m_jumpSpeed);
-                canWallJump = false;
-            }
+        // // horizontal movement
+        // movement_x = Input.GetAxisRaw(HorizontalAxis);
+        // m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
+
+        // // jump
+        // if (Input.GetButtonDown(JumpButton))
+        // {
+        //     if (IsGrounded())
+        //     {
+        //         m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
+        //         isDoubleJumping = false;
+        //     }
+        //     else if (!IsGrounded() && m_playerState.HasDoubleJump)
+        //     {
+        //         if (!isDoubleJumping)
+        //         {
+        //             // double jump only when player isn't already double jumping
+        //             m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
+        //             isDoubleJumping = true;
+        //         }
+        //     }
+
+        //     // wall jump
+        //     if (!IsGrounded() && m_playerState.HasWallJump && canWallJump)
+        //     {
+        //         m_rb.velocity = new Vector2(m_rb.velocity.x * wallNormal.x, m_jumpSpeed);
+        //         canWallJump = false;
+        //     }
         }
-        UpdateAnimation();
+        // UpdateAnimation();
     }
 
     private void UpdateAnimation()

@@ -23,6 +23,7 @@ public class MultipleTargetCamera : MonoBehaviour
     void Start() 
     {
         cam = GetComponent<Camera>();
+
     }
     
     //The camera should move after everything else has moved, hence LateUpdate not Update.
