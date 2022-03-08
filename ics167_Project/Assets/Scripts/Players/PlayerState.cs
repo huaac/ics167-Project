@@ -16,6 +16,7 @@ public class PlayerState : MonoBehaviour
 
     private bool isDead;
     private bool isUsingPowerUp;
+    private bool hasFinished;
 
     // bool's to enable/disable power ups
     private bool doubleJumpEnabled;
@@ -52,6 +53,15 @@ public class PlayerState : MonoBehaviour
     public void SetToNoPowerUp()
     {
         isUsingPowerUp = false;
+    }
+
+    public bool HasFinished
+    {
+        get { return hasFinished; }
+    }
+    public void SetToFinished()
+    {
+        hasFinished = true;
     }
 
 

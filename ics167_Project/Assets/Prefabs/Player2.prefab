@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac44d0d02b07d4487ab4f1a324c137e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFinishReached: {fileID: 11400000, guid: f79cf4c6dac5b471ebaf6b1fea2e94c2, type: 2}
+  OnFinishReached: {fileID: 11400000, guid: 78ce2f6e3f86b4bf6af51c536cea4426, type: 2}
   HorizontalAxis: Horizontal2
   JumpButton: Jump2
   m_moveSpeed: 5

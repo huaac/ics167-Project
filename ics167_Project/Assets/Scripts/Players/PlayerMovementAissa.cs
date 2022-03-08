@@ -34,6 +34,9 @@ public class PlayerMovementAissa : MonoBehaviour
     private bool canWallJump;
     private Vector2 wallNormal;
 
+    private bool finished;
+    private Transform waitPos;
+
 
     private void Awake()
     {
@@ -46,6 +49,21 @@ public class PlayerMovementAissa : MonoBehaviour
 
     private void Update()
     {
+        if (m_playerState.IsDead)
+            return;
+
+        if (m_playerState.HasFinished)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waitPos.position, 3f * Time.deltaTime);
+            if (transform.position.x == waitPos.position.x && !finished)
+            {
+                OnFinishReached.Raise();
+                finished = true;
+            }
+
+            return;
+        }
+
         // horizontal movement
         movement_x = Input.GetAxisRaw(HorizontalAxis);
         m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
@@ -131,11 +149,14 @@ public class PlayerMovementAissa : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Finish")
         {
-            OnFinishReached.Raise();
+            m_playerState.SetToFinished();
+
+            collision.gameObject.TryGetComponent(out Finish finish);
+            waitPos = finish.EmptyPosition();
         }
     }
 

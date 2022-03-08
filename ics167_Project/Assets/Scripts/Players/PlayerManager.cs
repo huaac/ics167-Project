@@ -12,9 +12,12 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private int playerCount = 2;
+    [SerializeField] private int finishCount = 2;
     [SerializeField] private GameEvent OnEveryoneDied;
+    [SerializeField] private GameEvent OnEveryoneFinished;
 
     private bool everyoneAlreadyDied;
+    private bool everyoneAlreadyFinished;
 
     private void Update()
     {
@@ -24,10 +27,21 @@ public class PlayerManager : MonoBehaviour
             everyoneAlreadyDied = true;
             OnEveryoneDied.Raise();
         }
+        else if (finishCount <= 0 && !everyoneAlreadyFinished)
+        {
+            Debug.Log("everyone finished!");
+            everyoneAlreadyFinished = true;
+            OnEveryoneFinished.Raise();
+        }
     }
 
     public void DecrementPlayerCount()
     {
         playerCount--;
+    }
+
+    public void DecrementFinishCount()
+    {
+        finishCount--;
     }
 }
