@@ -38,3 +38,9 @@ Sources that helped in the making of the game:
 - https://www.youtube.com/watch?v=BLfNP4Sc_iA&ab_channel=Brackeys
 - https://www.youtube.com/watch?v=11ofnLOE8pw&ab_channel=AlexanderZotov
 - https://www.youtube.com/watch?v=-VkezxxjsSE
+
+**FINAL PLAYTEST**
+
+Audio Credits:
+- Title Screen and Gameplay music from https://www.bensound.com
+- Other sound effects are from youtube
