@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ScreenScenes/Lobby Screen.unity
     guid: 52ea019ba93f9654a9b03a8739ee35e3
   - enabled: 1
+    path: Assets/Scenes/TutorialLevelTestNM.unity
+    guid: abcf5f5e1ef68eb4081abb18ef4d4c3c
+  - enabled: 0
     path: Assets/Scenes/TutorialLevel.unity
     guid: 34a5de7fdc0ff4d328de02d75b2f02c0
   - enabled: 1
@@ -23,10 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ScreenScenes/Thank You Screen.unity
     guid: f2b2ab7b32b9dff408d9ce2fdf303959
-  - enabled: 1
-    path: Assets/Scenes/TutorialLevelTestNM.unity
-    guid: abcf5f5e1ef68eb4081abb18ef4d4c3c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ScreenScenes/Level Screen.unity
     guid: 393efa9d488b22349b11fc438a91e048
   m_configObjects: {}
