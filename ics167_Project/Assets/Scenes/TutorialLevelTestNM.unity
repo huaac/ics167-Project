@@ -6514,5 +6514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8488724211291883995, guid: d0c978b72153f4bf9ab1a507514aaebc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0c978b72153f4bf9ab1a507514aaebc, type: 3}

@@ -213,6 +213,7 @@ public class PlayerMovementAissa : MonoBehaviour
         canWallJump = false;
     }
 
+    //gets the flipping of the animator to show in networked coop
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)  //added my alice
     {
         if (stream.IsWriting)
