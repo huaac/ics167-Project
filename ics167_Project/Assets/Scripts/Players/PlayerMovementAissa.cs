@@ -219,10 +219,19 @@ public class PlayerMovementAissa : MonoBehaviour
         if (stream.IsWriting)
         {
             stream.SendNext(m_sprite.flipX);
+            // stream.SendNext(m_rb.position);
+            // stream.SendNext(m_rb.position);
+            // stream.SendNext(m_rb.velocity);
         }
         else
         {
             m_sprite.flipX = (bool)stream.ReceiveNext();
+            // playerPos = (Vector2)stream.ReceiveNext();
+            // m_rb.position = (Vector2) stream.ReceiveNext();
+            // m_rb.velocity = (Vector2) stream.ReceiveNext();
+
+            // float lag = Mathf.Abs((float) (PhotonNetwork.Time - info.timestamp));
+            // m_rb.position += (this.m_rb.velocity * lag);
         }
     }
 }
