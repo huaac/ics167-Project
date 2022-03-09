@@ -7,6 +7,8 @@ using Photon.Pun;       //added by Alice
 // Implements player movement by using Input axes that can be set in the Input Manager for Project Settings.
 // Also sets animation for the player's Animator to use depending on player's velocity.
 
+// AudioManager by Mindy
+
 public class PlayerMovementAissa : MonoBehaviour
 {
     private Rigidbody2D m_rb;
@@ -77,6 +79,7 @@ public class PlayerMovementAissa : MonoBehaviour
             // jump
             if (Input.GetButtonDown(JumpButton))
             {
+                AudioManager.PlaySound("jump");
                 if (IsGrounded())
                 {
                     m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
@@ -189,6 +192,7 @@ public class PlayerMovementAissa : MonoBehaviour
     {
         if (collision.gameObject.tag == "Finish")
         {
+            AudioManager.PlaySound("win");
             m_playerState.SetToFinished();
 
             collision.gameObject.TryGetComponent(out Finish finish);

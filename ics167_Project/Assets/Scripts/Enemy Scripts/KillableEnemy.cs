@@ -26,6 +26,7 @@ public abstract class KillableEnemy : Enemy, IDamageable
     // method for taking in damage
     virtual public void TakeDamage(int damage)
     {
+        AudioManager.PlaySound("attack"); // by Mindy Jun
         CurrentHealth -= damage;
         ChangeHealthBar();
 
