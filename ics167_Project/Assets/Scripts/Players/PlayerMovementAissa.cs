@@ -212,4 +212,16 @@ public class PlayerMovementAissa : MonoBehaviour
         Vector2 normal = new Vector2(0, 0);
         canWallJump = false;
     }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)  //added my alice
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(m_sprite.flipX);
+        }
+        else
+        {
+            m_sprite.flipX = (bool)stream.ReceiveNext();
+        }
+    }
 }
