@@ -43,4 +43,4 @@ Sources that helped in the making of the game:
 
 Audio Credits:
 - Title Screen and Gameplay music from https://www.bensound.com
-- Other sound effects are from youtube
+- Other sound effects are from Casual Game Sounds Asset (Unity Store)
