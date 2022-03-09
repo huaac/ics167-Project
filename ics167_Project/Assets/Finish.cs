@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// by Aissa Akiyama
-// A script just to hold information about which wait position at the goal is/is not full yet.
-
 public class Finish : MonoBehaviour
 {
     private Transform firstPos;
     private Transform secondPos;
     private bool firstIsFull;
 
+    // Start is called before the first frame update
     private void Awake()
     {
         firstPos = transform.GetChild(0);
