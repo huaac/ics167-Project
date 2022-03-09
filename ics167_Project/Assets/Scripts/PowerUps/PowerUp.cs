@@ -71,7 +71,6 @@ public abstract class PowerUp : MonoBehaviour
     protected virtual void PowerUpApply()
     {
         player.SetToPowerUp();
-        AudioManager.PlaySound("pickup"); // by Mindy Jun
     }
 
     protected virtual void PowerUpExpired()
