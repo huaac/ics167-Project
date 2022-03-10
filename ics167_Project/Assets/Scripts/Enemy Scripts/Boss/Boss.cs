@@ -12,7 +12,10 @@ public class Boss : KillableEnemy
     private Vector2 previousPosition;
 
     [SerializeField] private GameObject protein;
-    [SerializeField] private float offset = 100f;
+    [SerializeField] private float offset = 2f;
+
+    [SerializeField] private GameObject finish;
+    [SerializeField] private float finishY;
 
     private Rigidbody2D m_rb;
     private BoxCollider2D m_col;
@@ -103,6 +106,22 @@ public class Boss : KillableEnemy
         }
 
         m_anim.SetTrigger("wakeUp");
+    }
+
+
+    protected override void Die()
+    {
+        m_anim.SetTrigger("death");
+        ReleaseFinish();
+        base.Die();
+    }
+    private void ReleaseFinish()
+    {
+        GameObject go = (GameObject)Instantiate(finish,
+            new Vector3(transform.position.x,
+                        finishY,
+                        0f),
+            Quaternion.identity);
     }
 
 

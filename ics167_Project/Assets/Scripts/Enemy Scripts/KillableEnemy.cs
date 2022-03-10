@@ -32,8 +32,15 @@ public abstract class KillableEnemy : Enemy, IDamageable
 
         if (CurrentHealth <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    // by Aissa Akiyama
+    // separated death logic so different types of enemies can die differently
+    virtual protected void Die()
+    {
+        Destroy(gameObject);
     }
 
     // shows current health to show on the health bar
@@ -44,6 +51,7 @@ public abstract class KillableEnemy : Enemy, IDamageable
 
     //public abstract void OnCollisionEnter2D(Collision2D col);
 
+    // by Aissa Akiyama
     // A killable enemy will take damage when the Helper attacks it, just like
     // when a player with the protein powerup attacks it.
     protected override void OnHelperAttack(int damage)
