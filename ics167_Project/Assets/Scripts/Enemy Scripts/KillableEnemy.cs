@@ -10,7 +10,7 @@ using UnityEngine;
 public abstract class KillableEnemy : Enemy, IDamageable
 {
 
-    protected int max_health = 100; // can be overrided for variation
+    [SerializeField] protected int max_health = 100; // can be overrided for variation
     public int CurrentHealth { get; set; }
 
     public HealthBar health_bar;

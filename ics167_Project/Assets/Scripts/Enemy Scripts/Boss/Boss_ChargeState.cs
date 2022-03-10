@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// by Aissa Akiyama
+
 public class Boss_ChargeState : StateMachineBehaviour
 {
     [SerializeField] private float m_speed = 0.5f;
@@ -25,6 +27,7 @@ public class Boss_ChargeState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // move boss back and forth between left/right positions
         boss.transform.position = new Vector2(
             Mathf.Lerp(right, left, t),
             boss.transform.position.y);

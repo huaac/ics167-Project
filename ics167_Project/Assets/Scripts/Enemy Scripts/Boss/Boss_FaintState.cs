@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// by Aissa Akiyama
+
 public class Boss_FaintState : StateMachineBehaviour
 {
     private Boss boss;
@@ -23,5 +25,6 @@ public class Boss_FaintState : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("wakeUp");
+        boss.ErasePowerUps();
     }
 }

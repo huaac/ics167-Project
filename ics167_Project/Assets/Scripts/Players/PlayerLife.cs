@@ -14,6 +14,7 @@ using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private GameEvent OnPlayerDied;
+    [SerializeField] private int attack = 50;
 
     private Rigidbody2D m_rb;
     private BoxCollider2D m_collider;
@@ -67,7 +68,7 @@ public class PlayerLife : MonoBehaviour
         {
             if (m_playerState.HasProtein)
             {
-                killable.TakeDamage(50);
+                killable.TakeDamage(attack);
                 return;
             }
             else

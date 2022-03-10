@@ -2,18 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// by Aissa Akiyama
+/// A simple script for the Boss. State transitions are done using Unity's built-in Animator
+/// state machines.
+/// </summary>
+
 public class Boss : KillableEnemy
 {
     [SerializeField] private Transform left;
     [SerializeField] private Transform right;
-    [SerializeField] private float chargeLength = 1f;
-    [SerializeField] private float faintLength = 20f;
+    [SerializeField] private float chargeLength = 20f;
+    [SerializeField] private float faintLength = 20f; // should be slightly longer than powerup length
     private float movement_x;
     private Vector2 previousPosition;
 
+    [Header("PowerUp Spawn Settings")]
     [SerializeField] private GameObject protein;
     [SerializeField] private float offset = 2f;
 
+    [Header("Finish Spawn Settings")]
     [SerializeField] private GameObject finish;
     [SerializeField] private float finishY;
 
@@ -30,12 +38,6 @@ public class Boss : KillableEnemy
         m_col = GetComponent<BoxCollider2D>();
         m_sprite = GetComponent<SpriteRenderer>();
         m_anim = GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
-        m_anim.SetFloat("chargeLength", 20f);
-        m_anim.SetFloat("faintLength", 20f);
     }
 
     private void Update()
@@ -57,6 +59,7 @@ public class Boss : KillableEnemy
         previousPosition = transform.position;
     }
 
+    // Charge for a pre-determined amount of time
     public void StartChargeTimer()
     {
         StartCoroutine(ChargeTimer());
@@ -73,8 +76,10 @@ public class Boss : KillableEnemy
         m_anim.SetTrigger("faint");
     }
 
+    // Release powerups that can be used to attack the boss while it is fainting
     public void ReleasePowerUps()
     {
+        // release 1 protein to right
         GameObject go = (GameObject)Instantiate(protein,
             new Vector3(transform.position.x + offset,
                         transform.position.y,
@@ -83,6 +88,7 @@ public class Boss : KillableEnemy
 
         go.GetComponent<Rigidbody2D>().velocity = new Vector2(2f, 0f);
 
+        // release 1 protein to left
         GameObject go2 = (GameObject)Instantiate(protein,
             new Vector3(transform.position.x - offset,
                         transform.position.y,
@@ -91,7 +97,17 @@ public class Boss : KillableEnemy
 
         go2.GetComponent<Rigidbody2D>().velocity = new Vector2(-2f, 0f);
     }
+    // Erase power ups left in scene so players can't attack boss while it's charging
+    public void ErasePowerUps()
+    {
+        var powerups = FindObjectsOfType<PowerUp>();
+        foreach (PowerUp pu in powerups)
+        {
+            Destroy(pu.gameObject);
+        }
+    }
 
+    // Faint for a pre-determined amount of time
     public void StartFaintTimer()
     {
         StartCoroutine(FaintTimer());
@@ -105,6 +121,7 @@ public class Boss : KillableEnemy
             timer--;
         }
 
+        // things to do when boss is done fainting
         m_anim.SetTrigger("wakeUp");
     }
 
