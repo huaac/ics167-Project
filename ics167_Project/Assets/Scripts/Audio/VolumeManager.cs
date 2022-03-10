@@ -34,13 +34,13 @@ public class VolumeManager : MonoBehaviour
         PlayerPrefs.SetFloat(VolumePref, volumeSlider.value);
     }
 
-    void OnApplicationFocus(bool inFocus) 
+    /*void OnApplicationFocus(bool inFocus) 
     {
         if (!inFocus) 
         {
             SaveSoundSettings();
         }
-    }
+    }*/
 
     public void UpdateSound() 
     {
