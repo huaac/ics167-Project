@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 755292597}
   - component: {fileID: 6842934327535263432}
   - component: {fileID: 5372838748833872490}
+  - component: {fileID: -3870225514324372694}
   - component: {fileID: -8601085490648065221}
   m_Layer: 9
   m_Name: Player1
@@ -253,6 +254,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5372838748833872490}
   - {fileID: -8601085490648065221}
+  - {fileID: -3870225514324372694}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -289,6 +291,19 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &-3870225514324372694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4038192634204809749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35144820bcc25444bb8f0fd767d9423e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SmoothingDelay: 5
 --- !u!114 &-8601085490648065221
 MonoBehaviour:
   m_ObjectHideFlags: 0
