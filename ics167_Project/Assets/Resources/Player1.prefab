@@ -252,9 +252,10 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 4038192634204809755}
   - {fileID: 5372838748833872490}
-  - {fileID: -8601085490648065221}
   - {fileID: -3870225514324372694}
+  - {fileID: -8601085490648065221}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -303,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35144820bcc25444bb8f0fd767d9423e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SmoothingDelay: 5
+  SmoothingDelay: 0.5
 --- !u!114 &-8601085490648065221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +324,7 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: currentState
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: death
   m_SynchronizeLayers:
   - SynchronizeType: 0

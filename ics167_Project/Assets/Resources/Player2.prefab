@@ -528,9 +528,10 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 3703940966269962947}
   - {fileID: 82425007604484159}
-  - {fileID: 7074683155882914743}
   - {fileID: -4038437947190457605}
+  - {fileID: 7074683155882914743}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -579,7 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35144820bcc25444bb8f0fd767d9423e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SmoothingDelay: 5
+  SmoothingDelay: 0.5
 --- !u!114 &7074683155882914743
 MonoBehaviour:
   m_ObjectHideFlags: 0

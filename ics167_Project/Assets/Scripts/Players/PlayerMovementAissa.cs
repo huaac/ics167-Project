@@ -9,7 +9,7 @@ using Photon.Pun;       //added by Alice
 
 // AudioManager by Mindy
 
-public class PlayerMovementAissa : MonoBehaviour
+public class PlayerMovementAissa : MonoBehaviour, IPunObservable
 {
     private Rigidbody2D m_rb;
     private BoxCollider2D m_collider;
@@ -220,18 +220,17 @@ public class PlayerMovementAissa : MonoBehaviour
         {
             stream.SendNext(m_sprite.flipX);
             // stream.SendNext(m_rb.position);
-            // stream.SendNext(m_rb.position);
-            // stream.SendNext(m_rb.velocity);
+            stream.SendNext(m_rb.velocity);
         }
         else
         {
             m_sprite.flipX = (bool)stream.ReceiveNext();
             // playerPos = (Vector2)stream.ReceiveNext();
             // m_rb.position = (Vector2) stream.ReceiveNext();
-            // m_rb.velocity = (Vector2) stream.ReceiveNext();
+            m_rb.velocity = (Vector2) stream.ReceiveNext();
 
-            // float lag = Mathf.Abs((float) (PhotonNetwork.Time - info.timestamp));
-            // m_rb.position += (this.m_rb.velocity * lag);
+            float lag = Mathf.Abs((float) (PhotonNetwork.Time - info.timestamp));
+            m_rb.position += (this.m_rb.velocity * lag);
         }
     }
 }
