@@ -80,7 +80,7 @@ public class PlayerMovementAissa : MonoBehaviour, IPunObservable
         // jump
         if (Input.GetButtonDown(JumpButton))
         {
-            //AudioManager.PlaySound("jump");     // by Mindy Jun
+            AudioManager.PlaySound("jump");     // by Mindy Jun
             if (IsGrounded())
             {
                 m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);

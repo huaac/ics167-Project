@@ -14,6 +14,9 @@ public class Boss : KillableEnemy
     [SerializeField] private GameObject protein;
     [SerializeField] private float offset = 2f;
 
+    [SerializeField] private GameObject finish;
+    [SerializeField] private float finishY;
+
     private Rigidbody2D m_rb;
     private BoxCollider2D m_col;
     private SpriteRenderer m_sprite;
@@ -109,7 +112,16 @@ public class Boss : KillableEnemy
     protected override void Die()
     {
         m_anim.SetTrigger("death");
+        ReleaseFinish();
         base.Die();
+    }
+    private void ReleaseFinish()
+    {
+        GameObject go = (GameObject)Instantiate(finish,
+            new Vector3(transform.position.x,
+                        finishY,
+                        0f),
+            Quaternion.identity);
     }
 
 
