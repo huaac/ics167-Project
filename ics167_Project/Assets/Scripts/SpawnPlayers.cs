@@ -32,6 +32,23 @@ public class SpawnPlayers : MonoBehaviour
         cam = GameObject.Find("Main Camera");
         mtc = cam.GetComponent<MultipleTargetCamera>();
 
+        StartCoroutine(WaitToSpawn());
+
+        // if (PhotonNetwork.IsMasterClient)
+        // {
+        //     p1 = PhotonNetwork.Instantiate(p1Prefab.name, new Vector2(p1PosX, p1PosY), Quaternion.identity);
+        //     mtc.targets.Add(p1.transform);
+        // }
+        // else
+        // {
+        //     p2 = PhotonNetwork.Instantiate(p2Prefab.name, new Vector2(p2PosX, p2PosY), Quaternion.identity);
+        //     mtc.targets.Add(p2.transform);
+        // }
+    }
+
+    private IEnumerator WaitToSpawn()
+    {
+        yield return new WaitForSeconds(3f);
         if (PhotonNetwork.IsMasterClient)
         {
             p1 = PhotonNetwork.Instantiate(p1Prefab.name, new Vector2(p1PosX, p1PosY), Quaternion.identity);
@@ -42,6 +59,7 @@ public class SpawnPlayers : MonoBehaviour
             p2 = PhotonNetwork.Instantiate(p2Prefab.name, new Vector2(p2PosX, p2PosY), Quaternion.identity);
             mtc.targets.Add(p2.transform);
         }
+
     }
 
 }

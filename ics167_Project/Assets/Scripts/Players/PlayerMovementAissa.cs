@@ -199,8 +199,8 @@ public class PlayerMovementAissa : MonoBehaviour, IPunObservable
             // m_rb.position = (Vector2) stream.ReceiveNext();
             m_rb.velocity = (Vector2) stream.ReceiveNext();
 
-            float lag = Mathf.Abs((float) (PhotonNetwork.Time - info.timestamp));
-            m_rb.position += (this.m_rb.velocity * lag);
+            // float lag = Mathf.Abs((float) (PhotonNetwork.Time - info.timestamp));
+            // m_rb.position += (this.m_rb.velocity * lag);
         }
     }
 }

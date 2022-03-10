@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 1172566386}
   - component: {fileID: -3902381091638849100}
   - component: {fileID: 82425007604484159}
-  - component: {fileID: -4038437947190457605}
+  - component: {fileID: -1013313738971571642}
   - component: {fileID: 7074683155882914743}
   m_Layer: 9
   m_Name: Player2
@@ -530,7 +530,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 3703940966269962947}
   - {fileID: 82425007604484159}
-  - {fileID: -4038437947190457605}
+  - {fileID: -1013313738971571642}
   - {fileID: 7074683155882914743}
   sceneViewId: 0
   InstantiationId: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &-4038437947190457605
+--- !u!114 &-1013313738971571642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
