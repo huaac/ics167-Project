@@ -55,6 +55,9 @@ public class PlayerMovementAissa : MonoBehaviour, IPunObservable
 
     private void Update()
     {
+        if (view && !view.IsMine)
+            return;
+
         if (m_playerState.IsDead)
             return;
 
@@ -70,69 +73,36 @@ public class PlayerMovementAissa : MonoBehaviour, IPunObservable
             return;
         }
 
-        if(view.IsMine)     //wraoped movement in isMine added by Alice
-        {
-            // horizontal movement
-            movement_x = Input.GetAxisRaw(HorizontalAxis);
-            m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
+        // horizontal movement
+        movement_x = Input.GetAxisRaw(HorizontalAxis);
+        m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
 
-            // jump
-            if (Input.GetButtonDown(JumpButton))
+        // jump
+        if (Input.GetButtonDown(JumpButton))
+        {
+            AudioManager.PlaySound("jump");
+            if (IsGrounded())
             {
-                AudioManager.PlaySound("jump");
-                if (IsGrounded())
+                m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
+                isDoubleJumping = false;
+            }
+            else if (!IsGrounded() && m_playerState.HasDoubleJump)
+            {
+                if (!isDoubleJumping)
                 {
+                    // double jump only when player isn't already double jumping
                     m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
-                    isDoubleJumping = false;
-                }
-                else if (!IsGrounded() && m_playerState.HasDoubleJump)
-                {
-                    if (!isDoubleJumping)
-                    {
-                        // double jump only when player isn't already double jumping
-                        m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
-                        isDoubleJumping = true;
-                    }
-                }
-                // wall jump
-                if (!IsGrounded() && m_playerState.HasWallJump && canWallJump)
-                {
-                    m_rb.velocity = new Vector2(m_rb.velocity.x * wallNormal.x, m_jumpSpeed);
-                    canWallJump = false;
+                    isDoubleJumping = true;
                 }
             }
-            UpdateAnimation();
-
-        // // horizontal movement
-        // movement_x = Input.GetAxisRaw(HorizontalAxis);
-        // m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
-
-        // // jump
-        // if (Input.GetButtonDown(JumpButton))
-        // {
-        //     if (IsGrounded())
-        //     {
-        //         m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
-        //         isDoubleJumping = false;
-        //     }
-        //     else if (!IsGrounded() && m_playerState.HasDoubleJump)
-        //     {
-        //         if (!isDoubleJumping)
-        //         {
-        //             // double jump only when player isn't already double jumping
-        //             m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
-        //             isDoubleJumping = true;
-        //         }
-        //     }
-
-        //     // wall jump
-        //     if (!IsGrounded() && m_playerState.HasWallJump && canWallJump)
-        //     {
-        //         m_rb.velocity = new Vector2(m_rb.velocity.x * wallNormal.x, m_jumpSpeed);
-        //         canWallJump = false;
-        //     }
+            // wall jump
+            if (!IsGrounded() && m_playerState.HasWallJump && canWallJump)
+            {
+                m_rb.velocity = new Vector2(m_rb.velocity.x * wallNormal.x, m_jumpSpeed);
+                canWallJump = false;
+            }
         }
-        // UpdateAnimation();
+        UpdateAnimation();
     }
 
     private void UpdateAnimation()
