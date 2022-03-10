@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Boss_ChargeState : StateMachineBehaviour
 {
-    [SerializeField] private float m_speed = 2.5f;
+    [SerializeField] private float m_speed = 0.5f;
     private float left;
     private float right;
+    private float t;
+    private float dir = -1;
 
     private Boss boss;
 
@@ -24,8 +26,18 @@ public class Boss_ChargeState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         boss.transform.position = new Vector2(
-            Mathf.PingPong(Time.time * m_speed, right - left) + left,
+            Mathf.Lerp(right, left, t),
             boss.transform.position.y);
+
+        t += Time.deltaTime * m_speed * dir;
+        if (t <= 0 || t >= 1)
+        {
+            if (t <= 0)
+                t = 0;
+            else if (t >= 1)
+                t = 1;
+            dir *= -1;
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

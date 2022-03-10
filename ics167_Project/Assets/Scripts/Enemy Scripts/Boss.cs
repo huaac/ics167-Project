@@ -12,7 +12,7 @@ public class Boss : KillableEnemy
     private Vector2 previousPosition;
 
     [SerializeField] private GameObject protein;
-    [SerializeField] private float offset = 100f;
+    [SerializeField] private float offset = 2f;
 
     private Rigidbody2D m_rb;
     private BoxCollider2D m_col;
@@ -103,6 +103,13 @@ public class Boss : KillableEnemy
         }
 
         m_anim.SetTrigger("wakeUp");
+    }
+
+
+    protected override void Die()
+    {
+        m_anim.SetTrigger("death");
+        base.Die();
     }
 
 

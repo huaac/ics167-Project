@@ -1082,10 +1082,10 @@ MonoBehaviour:
   health_bar: {fileID: 231750606}
   left: {fileID: 1886238601}
   right: {fileID: 961600574}
-  chargeLength: 20
+  chargeLength: 5
   faintLength: 20
   protein: {fileID: 4471960657938428019, guid: 967607526803745e39e5bfa7ccf07cf8, type: 3}
-  offset: 0
+  offset: 2
 --- !u!1001 &1358220814
 PrefabInstance:
   m_ObjectHideFlags: 0

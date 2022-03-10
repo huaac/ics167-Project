@@ -80,7 +80,7 @@ public class PlayerMovementAissa : MonoBehaviour, IPunObservable
         // jump
         if (Input.GetButtonDown(JumpButton))
         {
-            AudioManager.PlaySound("jump");
+            //AudioManager.PlaySound("jump");     // by Mindy Jun
             if (IsGrounded())
             {
                 m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
@@ -162,7 +162,7 @@ public class PlayerMovementAissa : MonoBehaviour, IPunObservable
     {
         if (collision.gameObject.tag == "Finish")
         {
-            AudioManager.PlaySound("win");
+            AudioManager.PlaySound("win");  // by Mindy Jun
             m_playerState.SetToFinished();
 
             collision.gameObject.TryGetComponent(out Finish finish);
