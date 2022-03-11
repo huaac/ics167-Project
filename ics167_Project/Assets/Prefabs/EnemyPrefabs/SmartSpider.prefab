@@ -170,7 +170,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.42386428, y: -0.22383869}
@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb8570c25d6ccf4eb1f949b4c8505c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  max_health: 100
   health_bar: {fileID: 4714674582764660658}
   animator: {fileID: 4714674582714412759}
   detect_ground: {fileID: 4714674581939850381}
@@ -370,9 +371,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d73d310e082364babf6f6ed58daf0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  max_health: 100
   health_bar: {fileID: 4714674582764660658}
   move_state: {fileID: 0}
-  chase_state: {fileID: 0}
+  alert_state: {fileID: 0}
   idle_state: {fileID: 0}
   attack_state: {fileID: 0}
   hitbox: {fileID: 4714674582359779675}
@@ -380,6 +382,8 @@ MonoBehaviour:
   detect_ground: {fileID: 4714674581939850381}
   animator: {fileID: 4714674582714412759}
   facing_right: 0
+  in_sight: 0
+  powered_up: 0
 --- !u!1 &4714674582764660685
 GameObject:
   m_ObjectHideFlags: 0

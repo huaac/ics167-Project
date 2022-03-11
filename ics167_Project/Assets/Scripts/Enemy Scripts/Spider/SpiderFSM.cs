@@ -76,7 +76,7 @@ public class SpiderFSM : StateMachine
         //     transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         // }
         
-        RaycastHit2D detected = Physics2D.Raycast(detect_ground.position, transform.TransformDirection(Vector2.left),(float)0.5,LayerMask.GetMask("Player"));
+        RaycastHit2D detected = Physics2D.Raycast(detect_ground.position, transform.TransformDirection(Vector2.left),(float)0.1,LayerMask.GetMask("Player"));
         if(detected.collider)
         {
             // PlayerState FoundObject = GameObject.Find(detected.collider.gameObject.name).GetComponent<PlayerState>();
