@@ -63,13 +63,19 @@ public class PlayerMovementAissa : MonoBehaviour, IPunObservable
 
         if (m_playerState.HasFinished)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waitPos.position, 3f * Time.deltaTime);
-            if (transform.position.x == waitPos.position.x && !finished)
+            if (finished)
             {
+                return;
+            }
+            else if (transform.position.x == waitPos.position.x && !finished)
+            {
+                m_anim.SetInteger("currentState", 0); // set player animation to idle
                 OnFinishReached.Raise();
                 finished = true;
+                return;
             }
 
+            transform.position = Vector2.MoveTowards(transform.position, waitPos.position, 3f * Time.deltaTime);
             return;
         }
 
