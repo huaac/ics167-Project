@@ -47,8 +47,8 @@ public class PlayerLife : MonoBehaviour
         // check if collision was with enemy & die if it was
         if (collision.gameObject.tag == "Enemy")
         {
-            // Die();
-            view.RPC("Die", RpcTarget.All); //added by Alice for network
+            Die();
+            // view.RPC("Die", RpcTarget.All); //added by Alice for network (not working)
         }
     }
 

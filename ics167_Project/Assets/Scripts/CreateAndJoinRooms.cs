@@ -4,6 +4,9 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
 
+// written by Alice Hua
+// for creating and joining rooms
+
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
 
