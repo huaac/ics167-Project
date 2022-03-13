@@ -19,6 +19,7 @@ public class SpawnPlayers : MonoBehaviour
 
     [SerializeField] private GameObject p1Prefab;
     [SerializeField] private GameObject p2Prefab;
+    [SerializeField] private GameObject bossPrefab;
 
     public GameObject p1;
     public GameObject p2;
@@ -33,22 +34,11 @@ public class SpawnPlayers : MonoBehaviour
         mtc = cam.GetComponent<MultipleTargetCamera>();
 
         StartCoroutine(WaitToSpawn());
-
-        // if (PhotonNetwork.IsMasterClient)
-        // {
-        //     p1 = PhotonNetwork.Instantiate(p1Prefab.name, new Vector2(p1PosX, p1PosY), Quaternion.identity);
-        //     mtc.targets.Add(p1.transform);
-        // }
-        // else
-        // {
-        //     p2 = PhotonNetwork.Instantiate(p2Prefab.name, new Vector2(p2PosX, p2PosY), Quaternion.identity);
-        //     mtc.targets.Add(p2.transform);
-        // }
     }
 
     private IEnumerator WaitToSpawn()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         if (PhotonNetwork.IsMasterClient)
         {
             p1 = PhotonNetwork.Instantiate(p1Prefab.name, new Vector2(p1PosX, p1PosY), Quaternion.identity);

@@ -2728,7 +2728,7 @@ PrefabInstance:
     - target: {fileID: 8261426666635917161, guid: c42d06bb114ca584c951f0ec89953573,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.0033834737
+      value: 0.0023738886
       objectReference: {fileID: 0}
     - target: {fileID: 8261426666635917161, guid: c42d06bb114ca584c951f0ec89953573,
         type: 3}
@@ -2743,7 +2743,7 @@ PrefabInstance:
     - target: {fileID: 8261426666635917161, guid: c42d06bb114ca584c951f0ec89953573,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.10182
+      value: 0.101406
       objectReference: {fileID: 0}
     - target: {fileID: 8261426666635917161, guid: c42d06bb114ca584c951f0ec89953573,
         type: 3}
@@ -3177,17 +3177,22 @@ PrefabInstance:
     - target: {fileID: 2248890128331746418, guid: 6d78140c45653b342b11af536365d496,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2248890128331746418, guid: 6d78140c45653b342b11af536365d496,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2248890128691440566, guid: 6d78140c45653b342b11af536365d496,
         type: 3}
       propertyPath: m_Name
       value: SmartSpider 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248890128691440566, guid: 6d78140c45653b342b11af536365d496,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2248890128691440570, guid: 6d78140c45653b342b11af536365d496,
         type: 3}
