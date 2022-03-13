@@ -38,11 +38,9 @@ public class SceneScript : MonoBehaviour
     {
         ResetRestartCount();
         GameManager.Instance.completedLevels += 1;
-        Scene scene = SceneManager.GetActiveScene();
-        Debug.Log(scene.name);
-        SceneManager.LoadScene(scene.buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
-        int currentLevel = scene.buildIndex;
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
         if (currentLevel >= PlayerPrefs.GetInt("levelsUnlocked"))
         {
             PlayerPrefs.SetInt("levelsUnlocked", currentLevel);
