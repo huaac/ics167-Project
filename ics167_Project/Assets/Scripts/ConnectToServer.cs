@@ -5,6 +5,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 
+//added by Alice
+// connects to server
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update

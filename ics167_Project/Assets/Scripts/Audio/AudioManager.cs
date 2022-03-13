@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // by Mindy Jun
+// manages audio
 public class AudioManager : MonoBehaviour
 {
     [SerializeField]
