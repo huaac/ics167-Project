@@ -134,11 +134,13 @@ public class Boss : KillableEnemy
     }
     private void ReleaseFinish()
     {
+        /*
         GameObject go = (GameObject)Instantiate(finish,
             new Vector3(transform.position.x,
                         finishY,
                         0f),
-            Quaternion.identity);
+            Quaternion.identity);*/
+        finish.SetActive(true);
     }
 
 
