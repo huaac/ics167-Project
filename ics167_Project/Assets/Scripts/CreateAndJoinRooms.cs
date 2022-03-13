@@ -22,6 +22,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        PhotonNetwork.AutomaticallySyncScene = true;    //added
         PhotonNetwork.LoadLevel("TutorialLevelTestNM");
     }
 }

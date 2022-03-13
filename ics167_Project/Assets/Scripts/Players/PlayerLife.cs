@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;                       //added by Alice for network
 
 /// <summary>
 /// by Aissa Akiyama
@@ -21,12 +22,16 @@ public class PlayerLife : MonoBehaviour
     private Animator m_anim;
     private PlayerState m_playerState;
 
+    private PhotonView view;            //added by Alice
+
     private void Awake()
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_collider = GetComponent<BoxCollider2D>();
         m_anim = GetComponent<Animator>();
         m_playerState = GetComponent<PlayerState>();
+
+        view = GetComponent<PhotonView>();      //added by Alice
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -42,7 +47,8 @@ public class PlayerLife : MonoBehaviour
         // check if collision was with enemy & die if it was
         if (collision.gameObject.tag == "Enemy")
         {
-            Die();
+            // Die();
+            view.RPC("Die", RpcTarget.All); //added by Alice for network
         }
     }
 
@@ -57,6 +63,7 @@ public class PlayerLife : MonoBehaviour
 
             m_playerState.SetToDead();
             OnPlayerDied.Raise();
+            
         }
     }
 

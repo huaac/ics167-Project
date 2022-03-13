@@ -20,6 +20,8 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
+        PhotonNetwork.AutomaticallySyncScene = true;    //added
         SceneManager.LoadScene("Lobby Screen");
+        // PhotonNetwork.AutomaticallySyncScene = true;    //added
     }
 }

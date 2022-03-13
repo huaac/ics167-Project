@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;                       //added by Alice for network
 
 // written by Mindy Jun
 // level restart added by Aissa Akiyama
@@ -29,7 +30,8 @@ public class SceneScript : MonoBehaviour
         IncrementRestartCount();
         Time.timeScale = 1f;
         Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        // SceneManager.LoadScene(scene.name);
+        PhotonNetwork.LoadLevel(scene.name);        //added by alice for network
     }
 
     public void LoadNextLevel()

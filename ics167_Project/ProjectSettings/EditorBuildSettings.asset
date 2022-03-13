@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialLevel.unity
     guid: 34a5de7fdc0ff4d328de02d75b2f02c0
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/Level2NM.unity
     guid: edf5f961d87ad4c6f830c645bc456e64
   - enabled: 1
     path: Assets/Scenes/ScreenScenes/Thank You Screen.unity

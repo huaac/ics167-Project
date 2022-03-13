@@ -469,6 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnPlayerDied: {fileID: 11400000, guid: 7952fa2cb55d14f8f9f409f4d038872f, type: 2}
+  attack: 50
 --- !u!114 &2446875284298009280
 MonoBehaviour:
   m_ObjectHideFlags: 0
