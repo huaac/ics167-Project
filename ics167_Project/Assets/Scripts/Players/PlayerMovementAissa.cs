@@ -55,9 +55,6 @@ public class PlayerMovementAissa : MonoBehaviour, IPunObservable
 
     private void Update()
     {
-        if (view && !view.IsMine)
-            return;
-
         if (m_playerState.IsDead)
             return;
 
@@ -78,6 +75,9 @@ public class PlayerMovementAissa : MonoBehaviour, IPunObservable
             transform.position = Vector2.MoveTowards(transform.position, waitPos.position, 3f * Time.deltaTime);
             return;
         }
+
+        if (view && !view.IsMine)
+            return;
 
         // horizontal movement
         movement_x = Input.GetAxisRaw(HorizontalAxis);
