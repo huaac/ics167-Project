@@ -17,8 +17,8 @@ public class HelperFSM : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private Transform leadToFollow;
     [SerializeField] private float offset = 100f;
-    [SerializeField] private Collider2D player1Collider;
-    [SerializeField] private Collider2D player2Collider;
+    //[SerializeField] private Collider2D player1Collider;
+    //[SerializeField] private Collider2D player2Collider;
     private Vector2 homePosition;
     private Vector2 previousPosition;
     private float movement_x;
@@ -50,11 +50,12 @@ public class HelperFSM : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    /*
     private void Start()
     {
         Physics2D.IgnoreCollision(selfCollider, player1Collider);
         Physics2D.IgnoreCollision(selfCollider, player2Collider);
-    }
+    }*/
 
     private void Update()
     {
