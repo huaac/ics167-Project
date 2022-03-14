@@ -11,6 +11,7 @@ The first mouse uses A/W/D and the second mouse uses the left/up/right arrows.
 To pick up a powerup, run over it and the mice will have the powerup for a limited amount of time.
 All enemies will kill the mouse on contact. Some enemies (the spider and the rattrap) have health bars and can be killed with the protein powerup.
 Avoid obstacles using powerups to reach the end of the level! Running into an obstacle leads to both players dying.
+After a certain amount of deaths, a helper ghost will appear and aid the players through the level!
 
 Levels are meant to be difficult to play through as one mistake can lead to restarting the entire level.
 If the player ends up stuck, the can always restart the level by selecting the back button or "killing" themselves by running into an enemy or jumping off the platforms.
@@ -18,6 +19,8 @@ If the player ends up stuck, the can always restart the level by selecting the b
 Known bugs:
 - Due to lag, one player can see the other play die from running into an enemy on their screen, but the other player was able to get through it, leading one player to respawn while the other one doesn't. In order to fix this, both players should restart the level around the same time to begin at the same time again.
 - Players sometimes wont be able to see the other player on their screen when respawning but the other player can, and vice versa. Similar to the bug above, both players should restart the level around the same time to fix this issue.
+- There exists a boss level but for some reason the players are unable to pass through to the boss level after finishing the second level. If you wish to check out the boss level, please check it out by opening the game up in Unity.
+- If you cannot coop with someone through a built game, open up the game in Unity and try playing through the Unity Game Window. This might help with being able to connect into the same server for some reason.
 
 **#SECOND PLAYTEST**
 
